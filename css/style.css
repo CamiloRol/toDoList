@@ -4,16 +4,36 @@
     padding: 0;
 }
 
-body {
+section {
     background-image: url("/recursos/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 100%;
+
+    justify-content: center;
+    height: 100vh;
+    justify-items: center;
 }
 
 #toDoSpace {
+    display: flex;
     background-color: white;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     width: 320px;
     height: 480px;
-    border-radius: 14%;
+    border-radius: 32px;
+}
+
+.btnProc {
+    width: 80%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+}
+
+.titleProc {
+    margin: auto 15px;
 }
