@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("/recursos/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+#toDoSpace {
+    background-color: white;
+    align-items: center;
+    width: 320px;
+    height: 480px;
+    border-radius: 14%;
+}
