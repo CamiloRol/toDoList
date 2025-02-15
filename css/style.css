@@ -6,23 +6,24 @@
 
 section {
     background-image: url("/recursos/background.jpg");
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;
     display: grid;
     grid-template-columns: 100%;
-
+    grid-template-rows: 15%
+                        75%;
     justify-content: center;
-    height: 100vh;
+    height: 142vh;
     justify-items: center;
 }
 
 #toDoSpace {
     display: flex;
-    background-color: white;
+    background-color: gray;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    width: 320px;
+    width: 348px;
     height: 480px;
     border-radius: 32px;
 }
@@ -35,5 +36,94 @@ section {
 }
 
 .titleProc {
-    margin: auto 15px;
+    margin: auto 4px;
 }
+
+body {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+  
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+  
+  a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease; }
+    a, a:hover {
+      text-decoration: none !important; }
+  
+  .content {
+    height: 70vh; }
+  
+  .footer-20192 {
+    position: relative;
+    color: #fff;
+    padding: 2rem 0;
+    background-color: #141d2a; }
+    
+    .footer-20192 .container {
+      position: relative; }
+
+    .footer-20192 h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      margin-top: 0;
+      line-height: 1.5; }
+
+    .footer-20192 .links li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+      display: block; }
+      
+    .footer-20192 .links li a {
+        color: #666873; }
+        
+    .footer-20192 .links li a:hover {
+          color: #fff; }
+
+    .footer-20192 .social li {
+      display: inline-block;
+      position: relative; }
+
+    .footer-20192 .social li a {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        background-color: lightgreen;
+        color: #fff; }
+
+    .footer-20192 .social li a > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+
+    .footer-20192 .footer-logo {
+      color: #fff;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: .1rem; }
+
+    .footer-20192 .copyright {
+      color: lightgreen; }
+
+    .footer-20192 .cta {
+      -webkit-box-shadow: -20px -20px 0 0 rgba(52, 58, 64, 0.2);
+      box-shadow: -20px -20px 0 0 rgba(52, 58, 64, 0.2);
+      padding: 20px;
+      background-color: lightgreen;
+      top: -80px;
+      position: relative; }
+
+    .footer-20192 .cta h2, .footer-20192 .cta h3 {
+        line-height: 1.5; }
+
+    .footer-20192 .cta h3 {
+        font-size: 20px; }
