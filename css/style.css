@@ -1,3 +1,5 @@
+@import "/node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,25 +17,73 @@ section {
 }
 
 #toDoSpace {
-    display: flex;
+    display: grid;
     background-color: gray;
     justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns: 100%;
     align-items: center;
-    width: 348px;
+    justify-items: center;
+    width: 75%;
     height: 480px;
     border-radius: 32px;
+    margin-top: 25px;
+}
+
+#listToDo {
+  width: 80%;
+  margin-top: 12px;
+}
+
+.task {
+  width: 100%;
+  min-height: 70px;
+  font-size: 25px;
+  padding: 10px;
+  margin-top: 10px;
+  color: white;
+  background-color: #407ba6;
+  box-shadow: 0px 5px 10px black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.tarea.completada {
+  text-decoration: line-through;
+  background-color: black;
+  border: none;
+}
+
+.tarea p {
+  max-width: 350px;
+}
+
+i {
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icono-completar {
+  color: lightgreen;
+}
+
+.icono-eliminar {
+  color: rgb(255, 255, 255);
+}
+
+.icono-completar:hover,
+.icono-eliminar:hover {
+  background-color: rgba(255, 255, 255, 0.523);
 }
 
 .btnProc {
-    width: 80%;
+    width: 32%;
     height: 42px;
     border: none;
     border-radius: 8px;
-}
-
-.titleProc {
-    margin: auto 4px;
 }
 
 body {
@@ -43,6 +93,12 @@ body {
     background-repeat: no-repeat;
     background-position: center;  
     background-attachment: fixed;  
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0;
 }
   
   h1, h2, h3, h4, h5, h6,
