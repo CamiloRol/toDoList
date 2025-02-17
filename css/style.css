@@ -1,5 +1,28 @@
 @import "/node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
+
+/* hover inserted to scale the Icon */
+.container img:hover{
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+.container a:hover{
+ color: #49d645; 
+ cursor: pointer;
+}
+.container a{
+  color: #ffffff;
+  font-size: larger;
+}
+.navbar{
+  /* background-color: rgba(128, 128, 128, 0.74); */
+  /* background-color: #bdecb6; */
+  background-color: lightgreen;
+}
+.navbar .dropdown-menu{
+  background-color: #0e0d0d98;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,7 +41,7 @@ section {
 
 #toDoSpace {
     display: grid;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.678);
     justify-content: center;
     grid-template-columns: 100%;
     align-items: center;
