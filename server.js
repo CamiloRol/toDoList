@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 3000;
 
 // Configuración de SQL Server
 const dbConfig = {
-    user: process.env.DB_USER || 'sa',
-    password: process.env.DB_PASSWORD || 'Temporal10.',
-    server: process.env.DB_SERVER || '192.168.1.70/MSSQLSERVER',
-    database: process.env.DB_NAME || 'pearoneProc',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_NAME,
     options: {
         encrypt: false,
         trustServerCertificate: true,
@@ -29,7 +29,8 @@ async function connectDB() {
 }
 
 // Middleware
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 // Endpoint para obtener usuarios
 app.get('/users', async (req, res) => {
