@@ -73,7 +73,7 @@ section {
   text-align: left;
 }
 
-.task .completada {
+.task.completada {
   text-decoration: line-through;
   background-color: black;
   border: none;
@@ -97,8 +97,13 @@ i {
   color: rgb(255, 255, 255);
 }
 
+.icono-editar {
+  color: antiquewhite;
+}
+
 .icono-completar:hover,
-.icono-eliminar:hover {
+.icono-eliminar:hover,
+.icono-editar:hover {
   background-color: rgba(255, 255, 255, 0.523);
   border-radius: 14px;
 }
