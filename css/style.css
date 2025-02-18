@@ -50,13 +50,13 @@ section {
   text-align: left;
 }
 
-.tarea.completada {
+.task .completada {
   text-decoration: line-through;
   background-color: black;
   border: none;
 }
 
-.tarea p {
+.task p {
   max-width: 350px;
 }
 

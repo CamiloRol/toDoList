@@ -38,13 +38,13 @@ class ToDo {
     }
 
     reviewDo(e) {
-        let tarea = e.target.parentNode.parentNode;
-        tarea.classList.toggle('completada');
+        let task = e.target.parentNode.parentNode;
+        task.classList.toggle('completada');
     }
 
     deleteDo(e) {
-        let tarea = e.target.parentNode.parentNode;
-        tarea.remove();
+        let task = e.target.parentNode.parentNode;
+        task.remove();
     }
 
     editDo() {

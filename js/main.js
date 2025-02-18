@@ -27,6 +27,6 @@ createBtn.addEventListener('click', () => {
 
 nameTask.addEventListener('keydown', (e) => {
   if (e.key == 'Enter') {
-    
+    obj.createDo()
   }
 })
