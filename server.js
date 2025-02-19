@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const sql = require('mssql');
 const path = require('path')
+const bcrypt = require('bcrypt');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,6 +30,7 @@ async function connectDB() {
 }
 
 // Middleware
+app.use(express.json())
 app.use(express.static('public'));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
@@ -40,6 +42,33 @@ app.get('/users', async (req, res) => {
         res.json(result.recordset);
     } catch (error) {
         res.status(500).json({ message: "Error obteniendo usuarios", error });
+    }
+});
+
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const pool = await sql.connect();
+        const result = await pool.request()
+            .input('email', sql.VarChar, email)
+            .query('SELECT * FROM Users WHERE emailUsers = @email');
+
+        if (result.recordset.length === 0) {
+            return res.status(401).json({ message: "❌ Usuario no encontrado" });
+        }
+
+        const user = result.recordset[0];
+        
+        // Validar contraseña
+        const isMatch = await bcrypt.compare(password, user.passwordUsers);
+        if (!isMatch) {
+            return res.status(401).json({ message: "❌ Contraseña incorrecta" });
+        }
+
+        res.json({ message: "✅ Inicio de sesión exitoso", user });
+    } catch (error) {
+        res.status(500).json({ message: "Error en la autenticación", error });
     }
 });
 
