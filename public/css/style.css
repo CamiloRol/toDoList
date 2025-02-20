@@ -10,6 +10,7 @@
  color: #49d645; 
  cursor: pointer;
 }
+
 .container a{
   color: #ffffff;
   font-size: larger;
@@ -41,14 +42,14 @@ section {
 
 #toDoSpace {
     display: grid;
-    background-color: rgba(128, 128, 128, 0.678);
+    background-color: rgba(153, 136, 136, 0.664);
     justify-content: center;
     grid-template-columns: 100%;
     align-items: center;
     justify-items: center;
     width: 75%;
-    height: 480px;
-    border-radius: 32px;
+    height: 400px;
+    border-radius: 50px;
     margin-top: 25px;
 }
 

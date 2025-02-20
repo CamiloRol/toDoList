@@ -1,10 +1,220 @@
+
+
+
+/* hover inserted to scale the Icon */
+.container img:hover{
+    transform: scale(1.1);
+    transition: all 0.2s;
+  }
+  .container a:hover{
+   color: #49d645; 
+   cursor: pointer;
+  }
+  
+  .container a{
+    color: #ffffff;
+    font-size: larger;
+  }
+  .navbar{
+    /* background-color: rgba(128, 128, 128, 0.74); */
+    /* background-color: #bdecb6; */
+    background-color: lightgreen;
+  }
+  .navbar .dropdown-menu{
+    background-color: #0e0d0d98;
+  }
+
+
+  
+/* israel */
+
+/* primera seccion */
+#carouselExampleAutoplaying {
+    transition: transform 0.3s ease-in-out;
+}
+#carouselExampleAutoplaying:hover {
+    transform: scale(1.02); 
+}
+section {
+    /* padding: 100px; */
+    margin: 0; 
+    padding-top: 35px;
+    padding-bottom: 100px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    background: linear-gradient(to left,rgba(135, 187, 221, 0.473),rgba(240, 243, 145, 0.74));
+    font-family: Arial, sans-serif;
+    justify-items: center
+
+}
+
+.contenedor-left p{
+
+    color: #000000;
+}
+ .contenedor-left {
+    width: 500px;
+    height: 500px;
+    background: rgb(248, 241, 241);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+.contenedor-right {
+    
+    width: 70%;
+    align-content: center;
+    
+}
+
+/* segunda seccion */
+#section2{
+    /* padding: 100px; */
+    margin: 0; 
+    padding-bottom: 25px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    background: linear-gradient(to left,rgba(135, 187, 221, 0.473),rgba(240, 243, 145, 0.74));    
+    font-family: Arial, sans-serif;
+    justify-items: center
+
+}
+
+.contenedor-left2 p{
+
+    color: #000000;
+}
+ .contenedor-left2 {
+    width: 500px;
+    height: 500px;
+    background: rgb(248, 241, 241);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+.contenedor-right {
+    
+    width: 70%;
+    align-content: center;
+    
+}
+
+/* Tercera Seccion */
+
+#section3{
+    /* padding: 100px; */
+    margin: 0; 
+    padding-bottom: 25px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    background: linear-gradient(to left,rgba(135, 187, 221, 0.473),rgba(240, 243, 145, 0.74));    
+    font-family: Arial, sans-serif;
+    justify-items: center
+
+}
+
+.contenedor-left3 p{
+
+    color: #000000;
+}
+ .contenedor-left3 {
+    width: 500px;
+    height: 500px;
+    background: rgb(248, 241, 241);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+.contenedor-right {
+    width: 70%;
+    align-content: center;
+    
+}
+
+/* cuarta Seccion */
+
+
+#section4{
+    /* padding: 100px; */
+    margin: 0; 
+    padding-bottom: 25px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    background: linear-gradient(to left,rgba(135, 187, 221, 0.473),rgba(240, 243, 145, 0.74));    
+    font-family: Arial, sans-serif;
+    justify-items: center
+
+}
+
+.contenedor-left4 p{
+
+    color: #000000;
+}
+ .contenedor-left4 {
+    width: 500px;
+    height: 500px;
+    background: rgb(248, 241, 241);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+.contenedor-right {
+    width: 70%;
+    align-content: center;
+    
+}
+
+/* Quinta seccion */
+#section5{
+    /* padding: 100px; */
+    margin: 0; 
+    padding-bottom: 100px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    background: linear-gradient(to left,rgba(135, 187, 221, 0.473),rgba(240, 243, 145, 0.74));    
+    font-family: Arial, sans-serif;
+    justify-items: center
+
+}
+
+.contenedor-left5 p{
+
+    color: #000000;
+}
+ .contenedor-left5 {
+    width: 500px;
+    height: 500px;
+    background: rgb(248, 241, 241);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+.contenedor-right5 {
+    width: 70%;
+    align-content: center; 
+}
+
+
+/* camilo info */
+/* 
 #infoContent {
     display: flex;
     width: 80%;
     justify-content: center;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.63);
     border-radius: 32px;
     margin-top: 12px;
+    color: #fff;
 }
 
 #tools {
@@ -27,3 +237,4 @@
 p {
     text-align: justify;
 } 
+ */
