@@ -6,10 +6,12 @@
   transform: scale(1.1);
   transition: all 0.2s;
 }
+
 .container a:hover{
- color: #49d645; 
+ color: #000000; 
  cursor: pointer;
 }
+
 .container a{
   color: #ffffff;
   font-size: larger;
@@ -17,7 +19,7 @@
 .navbar{
   /* background-color: rgba(128, 128, 128, 0.74); */
   /* background-color: #bdecb6; */
-  background-color: lightgreen;
+  background-color: #2E7D32;
 }
 .navbar .dropdown-menu{
   background-color: #0e0d0d98;
@@ -39,25 +41,51 @@ section {
     margin-bottom: 242px;
 }
 
+
+/* israel propiedades */
+
+#nameTask {
+  margin-top: 25px;
+  width: 100%; 
+  max-width: 300px; 
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #256aeb; 
+  border-radius: 10px; 
+  outline: none; 
+  transition: all 0.3s ease-in-out;
+}
+
+
+#nameTask:focus {
+  border-color: #2ecc71;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}
+
+
 #toDoSpace {
-    display: grid;
-    background-color: rgba(128, 128, 128, 0.678);
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(to left,rgba(147, 168, 28, 0.411),rgba(116, 253, 139, 0.452));
     justify-content: center;
-    grid-template-columns: 100%;
+     
     align-items: center;
     justify-items: center;
-    width: 75%;
-    height: 480px;
-    border-radius: 32px;
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
     margin-top: 25px;
+    gap: 5px;
 }
 
 #listToDo {
   width: 80%;
   margin-top: 12px;
+  
 }
 
 .task {
+  margin-bottom: 25px;
   width: 100%;
   min-height: 70px;
   font-size: 25px;
@@ -108,11 +136,19 @@ i {
   border-radius: 14px;
 }
 
+.btnProc:hover{
+  background-color: #49d645; 
+  color: #ffffff;
+  cursor: pointer;
+}
+
 .btnProc {
+    margin-top: 25px;
     width: 32%;
-    height: 42px;
+    height: 47px;
     border: none;
     border-radius: 8px;
+    /* background-color: #407ba6; */
 }
 
 body {
@@ -183,7 +219,7 @@ body.fade-out {
         margin: 0;
         padding: 0;
         background-color: lightgreen;
-        color: #fff; }
+        color: #000000; }
 
     .footer-20192 .social li a > span {
         position: absolute;
