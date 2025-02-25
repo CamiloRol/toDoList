@@ -1,7 +1,7 @@
 import ToDo from "./ToDo.js";
 import FormInventory from "./FormInventory.js"
 
-const d = d
+const d = document
 const nameTask = d.getElementById("nameTask")
 const createBtn = d.getElementById("createBtn")
 const listToDo = d.getElementById("listToDo")
@@ -12,6 +12,9 @@ const formSpace = d.getElementById("formSpace")
 
 const ob1 = new FormInventory()
 const obj = new ToDo(nameTask, listToDo)
+
+toDoSpace.style.display = "none"
+formSpace.style.display = "none"
 
 d.addEventListener("DOMContentLoaded", () => {
     d.querySelectorAll("a").forEach(link => {
@@ -27,8 +30,6 @@ d.addEventListener("DOMContentLoaded", () => {
             })
         }
     })
-    toDoSpace.style.display = "none"
-    formSpace.style.display = "none"
 })
 
 
