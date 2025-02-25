@@ -1,7 +1,7 @@
 import ToDo from "./ToDo.js";
 import FormInventory from "./FormInventory.js"
 
-const d = d
+const d = document
 const nameTask = d.getElementById("nameTask")
 const createBtn = d.getElementById("createBtn")
 const listToDo = d.getElementById("listToDo")
