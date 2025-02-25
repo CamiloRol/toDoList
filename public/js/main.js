@@ -1,25 +1,44 @@
 import ToDo from "./ToDo.js";
+import FormInventory from "./FormInventory.js"
 
-const nameTask = document.getElementById("nameTask")
-const createBtn = document.getElementById("createBtn")
-const listToDo = document.getElementById("listToDo")
+const d = d
+const nameTask = d.getElementById("nameTask")
+const createBtn = d.getElementById("createBtn")
+const listToDo = d.getElementById("listToDo")
+const btnToDo = d.getElementById("btnToDo")
+const btnForm = d.getElementById("btnForm")
+const toDoSpace = d.getElementById("toDoSpace")
+const formSpace = d.getElementById("formSpace")
+
+const ob1 = new FormInventory()
 const obj = new ToDo(nameTask, listToDo)
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("a").forEach(link => {
+d.addEventListener("DOMContentLoaded", () => {
+    d.querySelectorAll("a").forEach(link => {
         if (link.getAttribute("href").includes(".html")) {
             link.addEventListener("click", (event) => {
                 event.preventDefault();
                 const href = link.getAttribute("href")
 
-                document.body.classList.add("fade-out")
+                d.body.classList.add("fade-out")
                 setTimeout(() => {
                     window.location.href = href
                 }, 500)
             })
         }
     })
+    toDoSpace.style.display = "none"
+    formSpace.style.display = "none"
 })
+
+
+btnToDo.addEventListener("click", () => {
+    toDoSpace.style.display = toDoSpace.style.display === "none" ? "flex" : "none";
+});
+
+btnForm.addEventListener("click", () => {
+    formSpace.style.display = formSpace.style.display === "none" ? "flex" : "none";
+});
 
 createBtn.addEventListener('click', () => {
     obj.createDo()
