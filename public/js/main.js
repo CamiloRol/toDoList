@@ -1,7 +1,9 @@
 import ToDo from "./ToDo.js";
+
+
 /* import FormInventory from "./FormInventory.js" */
 
-const d = document
+ const d = document;
 const nameTask = d.getElementById("nameTask")
 const createBtn = d.getElementById("createBtn")
 const listToDo = d.getElementById("listToDo")
@@ -10,7 +12,7 @@ const btnForm = d.getElementById("btnForm")
 const toDoSpace = d.getElementById("toDoSpace")
 const formSpace = d.getElementById("formSpace")
 
-/* const ob1 = new FormInventory() */
+/* const ob1 = new FormInventory() *///verificar
 const obj = new ToDo(nameTask, listToDo)
 
 toDoSpace.style.display = "none"
@@ -51,5 +53,13 @@ nameTask.addEventListener('keydown', (e) => {
   }
 })
 
+//Aqui empieza israel , no se exactamente aun como respetar el antiguo formulario
 
-import localStorage from "./localstorage.js";
+
+import LocalStorage from "./localstorage.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    const storage = new LocalStorage();
+});
+
+
