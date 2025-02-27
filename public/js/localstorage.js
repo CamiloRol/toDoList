@@ -37,13 +37,28 @@ class LocalStorage {
         });
       }
     }
-  
+ 
     guardarDatos(datos) {
+        const listadopedidos = "Pedidos";
         let pedidos = [];
-        
-      localStorage.setItem("pedidos", JSON.stringify(datos)); // Guardamos en localStorage como JSON
-      alert("Datos guardados con éxito");
+    
+        // Extraer datos previos del localStorage
+        let pedidosPrevios = JSON.parse(localStorage.getItem(listadopedidos));
+    
+        // Si hay pedidos previos, los asignamos al array
+        if (pedidosPrevios !== null) {
+            pedidos = pedidosPrevios;
+        }
+    
+        // Agregar el nuevo pedido al array
+        pedidos.push(datos);
+    
+        // Guardar en localStorage
+        localStorage.setItem(listadopedidos, JSON.stringify(pedidos));
+    
+        alert("Datos guardados con éxito");
     }
+    
   }
   
   export default LocalStorage;
