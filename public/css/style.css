@@ -6,6 +6,7 @@
   transform: scale(1.1);
   transition: all 0.2s;
 }
+
 .container a:hover{
  color: #000000; 
  cursor: pointer;
@@ -140,8 +141,8 @@ i {
   color: #ffffff;
   cursor: pointer;
 }
-.btnProc {
 
+.btnProc {
     margin-top: 25px;
     width: 32%;
     height: 47px;
