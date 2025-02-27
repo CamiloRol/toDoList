@@ -14,6 +14,7 @@ const dbConfig = {
     }
 };
 
+
 // Conectar a la base de datos y actualizar contraseñas
 async function encryptPasswords() {
     try {
