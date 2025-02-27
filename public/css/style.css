@@ -151,6 +151,13 @@ i {
     /* background-color: #407ba6; */
 }
 
+/* Este es el color para la propiedad boostrap del form */
+
+.bg-success{
+  background-color: #ffffff;
+  /* filter: blur(1.5rem); */
+}
+
 body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
     background-image: url("/recursos/background.jpg");
@@ -161,6 +168,7 @@ body {
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
+
 
 body.fade-out {
   opacity: 0;

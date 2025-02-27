@@ -1,5 +1,5 @@
 import ToDo from "./ToDo.js";
-import FormInventory from "./FormInventory.js"
+/* import FormInventory from "./FormInventory.js" */
 
 const d = document
 const nameTask = d.getElementById("nameTask")
@@ -10,7 +10,7 @@ const btnForm = d.getElementById("btnForm")
 const toDoSpace = d.getElementById("toDoSpace")
 const formSpace = d.getElementById("formSpace")
 
-const ob1 = new FormInventory()
+/* const ob1 = new FormInventory() */
 const obj = new ToDo(nameTask, listToDo)
 
 toDoSpace.style.display = "none"
@@ -50,3 +50,6 @@ nameTask.addEventListener('keydown', (e) => {
     obj.createDo()
   }
 })
+
+
+import localStorage from "./localstorage.js";

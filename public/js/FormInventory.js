@@ -1,4 +1,4 @@
-class FormInventory {
+/* class FormInventory {
     constructor() {
     this.producto
     this.productos = productos
@@ -45,4 +45,4 @@ insertData() {
 
 }
 
-export default FormInventory
+export default FormInventory */
