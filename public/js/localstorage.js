@@ -1,3 +1,5 @@
+/* import jsPDF from "/jspdf"; */
+
 class LocalStorage {
     constructor() {
       this.d = document;
@@ -7,7 +9,7 @@ class LocalStorage {
       this.imagenInput = this.d.querySelector(".imagen");
       this.observacionInput = this.d.querySelector(".observacion");
       this.btnGuardar = this.d.querySelector(".btnguardar");
-  
+      /* this.genPdf = new jsPDF() */
       this.validar(); // Llamamos a la función al crear la clase
     }
   
@@ -58,6 +60,11 @@ class LocalStorage {
     
         alert("Datos guardados con éxito");
     }
+
+    /* exportarInven() {
+      this.genPdf.text(this.datosForm, 25, 25)
+      this.genPdf.save("invenPearone.pdf")
+    } */
     
   }
   

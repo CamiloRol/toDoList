@@ -1,9 +1,10 @@
+/* Se importan las clases que se usan */
 import ToDo from "./ToDo.js";
-
-
+import LocalStorage from "./localstorage.js";
 /* import FormInventory from "./FormInventory.js" */
 
- const d = document;
+/* Declaracion de constantes que son componentes del script */
+const d = document;
 const nameTask = d.getElementById("nameTask")
 const createBtn = d.getElementById("createBtn")
 const listToDo = d.getElementById("listToDo")
@@ -12,27 +13,36 @@ const btnForm = d.getElementById("btnForm")
 const toDoSpace = d.getElementById("toDoSpace")
 const formSpace = d.getElementById("formSpace")
 
-/* const ob1 = new FormInventory() *///verificar
+/* Declaracion de constantes que son instancias de clases, no es necesario cargarla cuando se levanta el dom por que es una varible de por si. hay que leer un poco el codigo para entender su estructura.
+
+importaciones
+variables
+cargue del dom
+y escuchadores de botones
+
+ademas que la constante d es equivalente a document por eso cuando utilice documen mejor utiliza d
+
+*/
+const storage = new LocalStorage();
+/* const ob1 = new FormInventory() */
 const obj = new ToDo(nameTask, listToDo)
 
 toDoSpace.style.display = "none"
 formSpace.style.display = "none"
 
-d.addEventListener("DOMContentLoaded", () => {
-    d.querySelectorAll("a").forEach(link => {
-        if (link.getAttribute("href").includes(".html")) {
-            link.addEventListener("click", (event) => {
-                event.preventDefault();
-                const href = link.getAttribute("href")
+d.addEventListener("click", (event) => {
+    let link = event.target.closest("a"); // Busca el <a> más cercano
+    if (link && link.getAttribute("href").includes(".html")) {
+        event.preventDefault();
+        const href = link.getAttribute("href");
 
-                d.body.classList.add("fade-out")
-                setTimeout(() => {
-                    window.location.href = href
-                }, 500)
-            })
-        }
-    })
-})
+        d.body.classList.add("fade-out");
+        setTimeout(() => {
+            window.location.href = href;
+        }, 500);
+    }
+});
+
 
 
 btnToDo.addEventListener("click", () => {
@@ -52,14 +62,5 @@ nameTask.addEventListener('keydown', (e) => {
     obj.createDo()
   }
 })
-
-//Aqui empieza israel , no se exactamente aun como respetar el antiguo formulario
-
-
-import LocalStorage from "./localstorage.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-    const storage = new LocalStorage();
-});
 
 
