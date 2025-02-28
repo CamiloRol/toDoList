@@ -41,7 +41,16 @@ section {
     margin-bottom: 242px;
 }
 
+#inventaryCards {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  justify-items: center;
+}
 
+.card{
+  margin-bottom: 25px;
+}
 /* israel propiedades */
 
 #nameTask {

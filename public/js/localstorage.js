@@ -1,4 +1,4 @@
-/* import jsPDF from "/jspdf"; */
+const { jsPDF } = window.jspdf;
 
 class LocalStorage {
   constructor() {
@@ -9,10 +9,10 @@ class LocalStorage {
       this.imagenInput = this.d.querySelector(".imagen");
       this.observacionInput = this.d.querySelector(".observacion");
       this.btnGuardar = this.d.querySelector(".btnguardar");
-      this.tabla = this.d.querySelector(".table > tbody");
-      
-      /* this.genPdf = new jsPDF() */
+      this.tabla = this.d.querySelector("#inventaryCards");
+      this.jsPDF = new jsPDF();
 
+      
       this.validar(); // llama esa funcion al crear la clase 
       this.mostrarDatos(); // Muestra los datos guardados que estban guardados al crear la pag 
   }
@@ -68,14 +68,15 @@ class LocalStorage {
       pedidos.forEach((p, i) => {
           let fila = this.d.createElement("tr");
           fila.innerHTML = `
-              <td>${i + 1}</td>
-              <td>${p.cliente}</td>
-              <td>${p.producto}</td>
-              <td>${p.precio}</td>
-              <td><img src="${p.imagen}" width="50%"></td>
-              <td>${p.observacion}</td>
-              <td><button class="btn-editar btn-primary" data-index="${i}">✏️</button></td>
-              <td><button class="btn-eliminar btn-danger" data-index="${i}">🗑️</button></td>
+              <div class="card" style="width: 18rem;">
+                <img src="${p.imagen}" class="card-img-top" alt="producto ${i + 1}">
+                <div class="card-body">
+                  <h5 class="card-title">${i + 1} ${p.producto}</h5>
+                  <p class="card-text">${p.observacion} a un precio de ${p.precio} al proveedor ${p.cliente}</p>
+                  <button class="btn-editar btn-primary" data-index="${i}">✏️</button>
+                  <button class="btn-eliminar btn-danger" data-index="${i}">🗑️</button>
+                </div>
+              </div>
           `;
 
           this.tabla.appendChild(fila);
@@ -127,10 +128,20 @@ class LocalStorage {
       this.eliminarPedido(index);
   }
 
-  /* exportarInven() {
-      this.genPdf.text(this.datosForm, 25, 25)
-      this.genPdf.save("invenPearone.pdf")
-  } */
+  exportarInven() {
+    let y = 20;
+
+    this.jsPDF.setFontSize(16);
+    this.jsPDF.text("Inventario de Pearone", 10, 10);
+
+    this.jsPDF.setFontSize(12);
+    Object.entries(this.datosForm).forEach(([key, value]) => {
+        this.jsPDF.text(`${key}: ${value}`, 10, y);
+        y += 10;
+    });
+
+    this.jsPDF.save("invenPearone.pdf");
+}
 }
 
 export default LocalStorage;
