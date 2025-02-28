@@ -104,13 +104,13 @@
     <section>
 
       <!-- div.container>div.row>div.col-7*3 -->
-      <div class="container">
+      <div class="containercrud">
         <div class="row justify-content-center">
           <div class="col-7">
-            <h1 class="text-center">Crud pedidos</h1>
+            <h1 class="text-center">Pedidos</h1>
           </div>
           <div class="col-7">
-            <form class="p-4 border rounded bg-success">
+            <form class="p-4 border rounded ">
               <div class="mb-3">
                 <label class="form-label">Cliente</label>
                 <input type="text" class="cliente form-control">
@@ -119,11 +119,17 @@
                 <label class="form-label">Producto</label>
                 <select class="producto form-select">
                   <option value="Select">--Select--</option>
-                  <option value="Criollo">Criollo</option>
-                  <option value="Guatemalteco">Guatemalteco</option>
-                  <option value="Mexicano">Mexicano</option>
-                  <option value="Hashi">Hashi</option>
-                  <option value="Injerto">injerto</option>
+                  <option value="Criollo">Aguacates</option>
+                  <option value="Guatemalteco">Peras</option>
+                  <option value="Mexicano">Piñas</option>
+                  <option value="Hashi">Tomates</option>
+                  <option value="Injerto">Manzanas</option>
+                  <option value="Injerto">Cebolla</option>
+                  <option value="Injerto">Queso</option>
+                  <option value="Injerto">Guayaba</option>
+                  <option value="Injerto">Cilantro</option>
+                  <option value="Injerto">Perejil</option>
+                  <option value="Injerto">Saumerio</option>
                 </select>
                 <div class="mb-3">
                   <label class="form-label">Precio</label>
@@ -151,7 +157,8 @@
                   <th scope="col">Precio</th>
                   <th scope="col">Imagen</th>
                   <th scope="col">Descripcion</th>
-                  <th scope="col">Acciones</th>
+                  <th scope="col">Editar</th>
+                  <th scope="col">Eliminar</th>
                 </tr>
               </thead>
               <tbody>

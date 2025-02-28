@@ -153,9 +153,13 @@ i {
 
 /* Este es el color para la propiedad boostrap del form */
 
-.bg-success{
-  background-color: #ffffff;
-  /* filter: blur(1.5rem); */
+.containercrud form{
+  background-color: #0e1f0c86;
+  color :#fafbfc;
+  
+}
+.containercrud{
+  color: #24a713;
 }
 
 body {
