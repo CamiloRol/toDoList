@@ -1,9 +1,7 @@
-/* Se importan las clases que se usan */
 import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
-/* import FormInventory from "./FormInventory.js" */
 
-/* Declaracion de constantes que son componentes del script */
+
 const d = document;
 const nameTask = d.getElementById("nameTask")
 const createBtn = d.getElementById("createBtn")
@@ -12,19 +10,9 @@ const btnToDo = d.getElementById("btnToDo")
 const btnForm = d.getElementById("btnForm")
 const toDoSpace = d.getElementById("toDoSpace")
 const formSpace = d.getElementById("formSpace")
+const btnSave = d.getElementById("btnSave")
 
-/* Declaracion de constantes que son instancias de clases, no es necesario cargarla cuando se levanta el dom por que es una varible de por si. hay que leer un poco el codigo para entender su estructura.
-
-importaciones
-variables
-cargue del dom
-y escuchadores de botones
-
-ademas que la constante d es equivalente a document por eso cuando utilice documen mejor utiliza d
-
-*/
 const storage = new LocalStorage();
-/* const ob1 = new FormInventory() */
 const obj = new ToDo(nameTask, listToDo)
 
 toDoSpace.style.display = "none"
@@ -43,12 +31,16 @@ d.addEventListener("click", (event) => {
     }
 });
 
+btnSave.addEventListener("click", () => {
+    storage.exportarInven()
+})
+
 btnToDo.addEventListener("click", () => {
     toDoSpace.style.display = toDoSpace.style.display === "none" ? "flex" : "none";
 });
 
 btnForm.addEventListener("click", () => {
-    formSpace.style.display = formSpace.style.display === "none" ? "flex" : "none";
+    formSpace.style.display = formSpace.style.display === "none" ? "grid" : "none";
 });
 
 createBtn.addEventListener('click', () => {

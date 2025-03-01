@@ -35,7 +35,7 @@
 #carouselExampleAutoplaying:hover {
     transform: scale(1.02); 
 }
-section {
+#aDifferentSec {
     /* padding: 100px; */
     margin: 0; 
     padding-top: 35px;
