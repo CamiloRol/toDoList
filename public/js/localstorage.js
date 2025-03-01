@@ -129,14 +129,25 @@ class LocalStorage {
   }
 
   exportarInven() {
-    let y = 20;
+    const listadopedidos = "Pedidos";
+    let pedidos = JSON.parse(localStorage.getItem(listadopedidos)) || [];
 
+    if (pedidos.length === 0) {
+        alert("No hay pedidos para exportar");
+        return;
+    }
+    let y = 20;
     this.jsPDF.setFontSize(16);
     this.jsPDF.text("Inventario de Pearone", 10, 10);
-
     this.jsPDF.setFontSize(12);
-    Object.entries(this.datosForm).forEach(([key, value]) => {
-        this.jsPDF.text(`${key}: ${value}`, 10, y);
+
+    pedidos.forEach((pedido, index) => {
+        this.jsPDF.text(`Pedido ${index + 1}`, 10, y);
+        y += 10;
+        Object.entries(pedido).forEach(([key, value]) => {
+            this.jsPDF.text(`${key}: ${value}`, 10, y);
+            y += 10;
+        });
         y += 10;
     });
 

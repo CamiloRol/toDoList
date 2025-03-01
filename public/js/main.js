@@ -1,6 +1,6 @@
 import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
-
+window.jsPDF = window.jspdf.jsPDF;
 
 const d = document;
 const nameTask = d.getElementById("nameTask")
