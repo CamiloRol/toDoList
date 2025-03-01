@@ -43,8 +43,6 @@ d.addEventListener("click", (event) => {
     }
 });
 
-
-
 btnToDo.addEventListener("click", () => {
     toDoSpace.style.display = toDoSpace.style.display === "none" ? "flex" : "none";
 });
