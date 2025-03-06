@@ -1,20 +1,18 @@
 const { jsPDF } = window.jspdf;
 
 class LocalStorage {
-  constructor() {
-      this.d = document;
-      this.clienteInput = this.d.querySelector(".cliente");
-      this.productoInput = this.d.querySelector(".producto");
-      this.precioInput = this.d.querySelector(".precio");
-      this.imagenInput = this.d.querySelector(".imagen");
-      this.observacionInput = this.d.querySelector(".observacion");
-      this.btnGuardar = this.d.querySelector(".btnguardar");
-      this.tabla = this.d.querySelector("#inventaryCards");
+  constructor(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, secProducts, fila) {
+      this.clienteInput = clienteInput
+      this.productoInput = productoInput
+      this.precioInput = precioInput
+      this.imagenInput = imagenInput
+      this.observacionInput = observacionInput
+      this.btnGuardar = btnGuardar
+      this.tabla = tabla
+      this.d = d
+      this.secProducts = secProducts
+      this.fila = fila
       this.jsPDF = new jsPDF();
-
-      
-      this.validar(); // llama esa funcion al crear la clase 
-      this.mostrarDatos(); // Muestra los datos guardados que estban guardados al crear la pag 
   }
 
   validar() {
@@ -40,7 +38,7 @@ class LocalStorage {
               };
 
               this.guardarDatos(this.datosForm);
-              this.mostrarDatos(); // Actualiza la tabla luego de guardar
+              this.mostrarDatos(); 
           });
       }
   }
@@ -66,8 +64,7 @@ class LocalStorage {
       this.tabla.innerHTML = ""; // limpia la tabla antes de agregar datos nuevos
 
       pedidos.forEach((p, i) => {
-          let fila = this.d.createElement("tr");
-          fila.innerHTML = `
+          this.fila.innerHTML = `
               <div class="card" style="width: 18rem;">
                 <img src="${p.imagen}" class="card-img-top" alt="producto ${i + 1}">
                 <div class="card-body">
@@ -79,7 +76,8 @@ class LocalStorage {
               </div>
           `;
 
-          this.tabla.appendChild(fila);
+          this.tabla.appendChild(this.fila)
+          this.secProducts.appendChild(this.fila)
       });
 
       // eventos del boton eliminar y asi editar tambien maracaibo

@@ -11,12 +11,27 @@ const btnForm = d.getElementById("btnForm")
 const toDoSpace = d.getElementById("toDoSpace")
 const formSpace = d.getElementById("formSpace")
 const btnSave = d.getElementById("btnSave")
+const clienteInput = d.querySelector(".cliente");
+const productoInput = d.querySelector(".producto");
+const precioInput = d.querySelector(".precio");
+const imagenInput = d.querySelector(".imagen");
+const observacionInput = d.querySelector(".observacion");
+const btnGuardar = d.querySelector(".btnguardar");
+const tabla = d.querySelector("#inventaryCards");
+const secProducts = d.getElementById("productsToSell")
 
-const storage = new LocalStorage();
+let fila = d.createElement("div")
+
+const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, secProducts, fila);
 const obj = new ToDo(nameTask, listToDo)
 
 toDoSpace.style.display = "none"
 formSpace.style.display = "none"
+
+d.addEventListener("DOMContentLoaded", ()=> {
+    storage.validar();  
+    storage.mostrarDatos(); 
+})
 
 d.addEventListener("click", (event) => {
     let link = event.target.closest("a"); // Busca el <a> más cercano
