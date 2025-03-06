@@ -2,4 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-ReactDOM.render(<App/>, document.getElementById("root"));
+const btnRegister = document.getElementById("btnRegister")
+
+btnRegister.addEventListener("click", ()=> {
+    ReactDOM.render(<App/>, document.getElementById("root"));
+})
