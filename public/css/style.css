@@ -160,6 +160,26 @@ i {
     /* background-color: #407ba6; */
 }
 
+
+/* Este es el del carrousel */
+
+.carousel-inner {
+  display: flex;
+}
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.card {
+  width: 18rem;
+}
+
+.bg-transparent-black {
+  background: rgba(0, 0, 0, 0.7); /* Negro con 70% de transparencia */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados para mejor apariencia */}
+
 /* Este es el color para la propiedad boostrap del form */
 
 .containercrud form{
