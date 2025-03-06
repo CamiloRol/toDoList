@@ -77,7 +77,6 @@ class LocalStorage {
           `;
 
           this.tabla.appendChild(this.fila)
-          this.secProducts.appendChild(this.fila)
       });
 
       // eventos del boton eliminar y asi editar tambien maracaibo

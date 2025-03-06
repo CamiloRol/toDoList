@@ -1,6 +1,18 @@
 import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
+import Cart from "./cart.js";
 window.jsPDF = window.jspdf.jsPDF;
+
+const productos = [
+    {id: 1, nombre: "Tomates Frescos", precio:1200, imagen: "/recursos/Tomates.jpg"},
+    {id: 2, nombre: "Aguacates Cremosos", precio:3000, imagen: "/recursos/avocado.jpg"},
+    {id: 3, nombre: "Piña para la niña", precio:1450, imagen: "/recursos/Piña.jpg"},
+    {id: 4, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
+    {id: 5, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
+    {id: 6, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
+    {id: 7, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
+    {id: 8, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
+]
 
 const d = document;
 const nameTask = d.getElementById("nameTask")
@@ -19,6 +31,10 @@ const observacionInput = d.querySelector(".observacion");
 const btnGuardar = d.querySelector(".btnguardar");
 const tabla = d.querySelector("#inventaryCards");
 const secProducts = d.getElementById("productsToSell")
+const contenDestacados = d.querySelector("#productosDestacados")
+const contenDestacados2 = d.querySelector("#productosDestacados2")
+
+const cart = new Cart(productos, d, contenDestacados, contenDestacados2)
 
 let fila = d.createElement("div")
 
@@ -30,7 +46,8 @@ formSpace.style.display = "none"
 
 d.addEventListener("DOMContentLoaded", ()=> {
     storage.validar();  
-    storage.mostrarDatos(); 
+    storage.mostrarDatos();
+    cart.insertProducts()
 })
 
 d.addEventListener("click", (event) => {
@@ -67,5 +84,3 @@ nameTask.addEventListener('keydown', (e) => {
     obj.createDo()
   }
 })
-
-
