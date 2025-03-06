@@ -47,9 +47,16 @@
 } 
 
 #banner {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  margin: 45px 25px;
+  width: 100%;
+  margin-top: 25px;
+  height: 5%;
+}
+#banner img{
+
+/*   object-fit: cover */
+  width: 99%;
+  margin-left: 6px;
+  opacity: 5; 
 }
 
 .pic img {
