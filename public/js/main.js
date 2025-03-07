@@ -1,6 +1,7 @@
 import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
 import Cart from "./cart.js";
+import ResumeCart from "./resumeCart.js";
 window.jsPDF = window.jspdf.jsPDF;
 
 const productos = [
@@ -8,10 +9,10 @@ const productos = [
     {id: 2, nombre: "Aguacates Cremosos", precio:3000, imagen: "/recursos/avocado.jpg"},
     {id: 3, nombre: "Piña para la niña", precio:1450, imagen: "/recursos/Piña.jpg"},
     {id: 4, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/frutasyverduras.jpeg"},
-    {id: 5, nombre: "no", precio:750, imagen: "no"},
-    {id: 6, nombre: "no", precio:750, imagen: "no"},
-    {id: 7, nombre: "no", precio:750, imagen: "no"},
-    {id: 8, nombre: "ns", precio:750, imagen: "np"},
+    {id: 5, nombre: "Sandia", precio:750, imagen: "/recursos/watermelon.jpg"},
+    {id: 6, nombre: "Coco", precio:750, imagen: "/recursos/coconut.jpg"},
+    {id: 7, nombre: "Pimenton", precio:750, imagen: "/recursos/redpepper.jpg"},
+    {id: 8, nombre: "Lechuga", precio:750, imagen: "/recursos/salad.jpg"},
 ]
 
 const d = document;
@@ -33,13 +34,16 @@ const tabla = d.querySelector("#inventaryCards");
 const secProducts = d.getElementById("productsToSell")
 const contenDestacados = d.querySelector("#productosDestacados")
 const contenDestacados2 = d.querySelector("#productosDestacados2")
+const cartCount = d.querySelector("#cartCount").textContent
 
 
 
 let fila = d.createElement("div")
 
-const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila);
+
+const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila, cartCount);
 const obj = new ToDo(nameTask, listToDo)
+const resumeCart = new ResumeCart()
 
 window.addEventListener("DOMContentLoaded", () => {
     const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
