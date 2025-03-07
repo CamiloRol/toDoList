@@ -1,19 +1,47 @@
 @import "/node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-.carrito{
+/* .carrito{
   background-color: transparent;
   padding: 5px 4px;
   border-radius: 50%;
   position: relative;
-}
+} */
 
-#resumeCart {
-  /* display: none; */
+/*#resumeCart {
+  display: none;
   width: 120px;
   background-color: lightgreen;
   position: relative;
   top: 52px;
   left: -1.5%;
+}*/
+./* Estilos del botón del carrito */
+.btn-cart {
+  background: none;
+  border: none;
+  position: relative;
+}
+.btn-cart i {
+  font-size: 24px;
+  color: white;
+}
+.btn-cart .badge {
+  font-size: 12px;
+  padding: 4px 6px;
+}
+
+/* Estilos del offcanvas que sale a la derecha maracaibo*/
+.offcanvas {
+  background-color: #f8f9fa;
+}
+.offcanvas-header {
+  background-color: #2E7D32;
+  color: white;
+}
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .contar-pro{
@@ -125,7 +153,7 @@ section {
   background: rgba(0, 0, 0, 0.7); 
   padding: 20px;
   border-radius: 10px; }
-/* Aqui termina carrousel */
+
 
 
 /* Form todo space */
