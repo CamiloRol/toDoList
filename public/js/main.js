@@ -35,6 +35,7 @@ const secProducts = d.getElementById("productsToSell")
 const contenDestacados = d.querySelector("#productosDestacados")
 const contenDestacados2 = d.querySelector("#productosDestacados2")
 const cartCount = d.querySelector("#cartCount").textContent
+const resumeCart = d.getElementById("resumeCart")
 
 
 
@@ -43,7 +44,7 @@ let fila = d.createElement("div")
 
 const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila, cartCount);
 const obj = new ToDo(nameTask, listToDo)
-const resumeCart = new ResumeCart()
+const cartToBuy = new ResumeCart()
 
 window.addEventListener("DOMContentLoaded", () => {
     const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
@@ -77,6 +78,10 @@ btnToDo.addEventListener("click", () => {
 btnForm.addEventListener("click", () => {
     formSpace.style.display = formSpace.style.display === "none" ? "grid" : "none";
 });
+
+/* cartCount.addEventListener("click", () => {
+    resumeCart.style.display = resumeCart.style.display === "none" ? "flex" : "none";
+}) */
 
 createBtn.addEventListener('click', () => {
     obj.createDo()

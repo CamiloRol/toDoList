@@ -64,7 +64,7 @@ class Cart {
         let contar = 0
 
         contar++
-        this.cartCount = cartCount
+        this.cartCount = contar
 
         if (existe) {
             existe.cantidad += 1;
