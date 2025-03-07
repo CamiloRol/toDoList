@@ -7,7 +7,7 @@ class Cart {
     }
 
    insertProducts() {
-    const productosDestacados = this.productos.slice(0, 4)
+    const productosDestacados = this.productos
     let i = 0
 
     do {
