@@ -7,11 +7,11 @@ const productos = [
     {id: 1, nombre: "Tomates Frescos", precio:1200, imagen: "/recursos/Tomates.jpg"},
     {id: 2, nombre: "Aguacates Cremosos", precio:3000, imagen: "/recursos/avocado.jpg"},
     {id: 3, nombre: "Piña para la niña", precio:1450, imagen: "/recursos/Piña.jpg"},
-    {id: 4, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
-    {id: 5, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
-    {id: 6, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
-    {id: 7, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
-    {id: 8, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/Naranja.jpg"},
+    {id: 4, nombre: "Naranjas Jugosas", precio:750, imagen: "/recursos/frutasyverduras.jpeg"},
+    {id: 5, nombre: "no", precio:750, imagen: "no"},
+    {id: 6, nombre: "no", precio:750, imagen: "no"},
+    {id: 7, nombre: "no", precio:750, imagen: "no"},
+    {id: 8, nombre: "ns", precio:750, imagen: "np"},
 ]
 
 const d = document;
@@ -34,21 +34,20 @@ const secProducts = d.getElementById("productsToSell")
 const contenDestacados = d.querySelector("#productosDestacados")
 const contenDestacados2 = d.querySelector("#productosDestacados2")
 
-const cart = new Cart(productos, d, contenDestacados, contenDestacados2)
+
 
 let fila = d.createElement("div")
 
-const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, secProducts, fila);
+const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila);
 const obj = new ToDo(nameTask, listToDo)
 
-toDoSpace.style.display = "none"
-formSpace.style.display = "none"
-
-d.addEventListener("DOMContentLoaded", ()=> {
+window.addEventListener("DOMContentLoaded", () => {
+    const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
+    cart.insertProducts()
     storage.validar();  
     storage.mostrarDatos();
-    cart.insertProducts()
 })
+
 
 d.addEventListener("click", (event) => {
     let link = event.target.closest("a"); // Busca el <a> más cercano
