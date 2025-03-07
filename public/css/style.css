@@ -6,6 +6,16 @@
   border-radius: 50%;
   position: relative;
 }
+
+#resumeCart {
+  /* display: none; */
+  width: 120px;
+  background-color: lightgreen;
+  position: relative;
+  top: 52px;
+  left: -1.5%;
+}
+
 .contar-pro{
   position: absolute;
   top: 0;
@@ -95,7 +105,7 @@ section {
                         75%;
     justify-content: center;
     justify-items: center;
-    margin-bottom: 242px;
+    margin-bottom: 62px;
 } 
  #inventaryCards {
   display: grid;

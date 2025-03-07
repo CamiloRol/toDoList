@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rndProyect</title>
+    <title>Compras</title>
     
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="/recursos/iconfinder-home-4341294_120570.ico" type="image/x-icon">
@@ -64,18 +64,9 @@
                     </a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" size="1" maxlength="30" type="email" placeholder="E-mail" aria-label="Search">
-                  <input class="form-control me-2"  maxlength="30" type="password" placeholder="Password" aria-label="Search">
-                  <button class="btn btn-outline-success btn-light" type="submit">Login</button>
-                </form>
                 <div class="carrito">
-                  <i class="bi bi-cart-dash ml-3" onclick=""></i>
-                  <span class="contar-pro" id="cartCount">0</span>
-                  
-                </div>
-                <div id="resumeCart">
-
+                  <i class="bi bi-cart-dash"></i>
+                  <span class="contar-pro">0</span>
                 </div>
               </div>
             </div>
@@ -83,111 +74,9 @@
 
     </header>
 
+    <section style="margin: 245px auto;">
 
-  <!-- Imagen inicial larga y boton -->
-  <section id="banner" style="position: relative; display: inline-block;">
-      <img src="recursos/finalone.png" alt="bnn" style="width: 100%; height: auto;">
-      <a href="#" class="btn" style="position: absolute; bottom: 20px; right: 20px; background-color: #8d1c62; color: white; border: none; padding: 10px 20px; font-weight: bold; text-decoration: none; transition: background-color 0.3s ease;">Shop Now</a>
-      <img src="recursos/Mega.png" alt="bnn" style="width: 100%; height: auto;">
-      <a href="/html/products.html" class="btn" style="position: absolute; bottom: 20px; right: 20px; background-color: lightgreen; color: black; border: none; padding: 10px 20px; font-weight: bold; text-decoration: none; transition: background-color 0.3s ease;">Shop Now</a>
-  </section>
-
-  <section>
-    <h2>"Por que no es lo mismo que la verdura este bien a verla bien dura"</h2>
-  </section>
-
-  <!-- Carrousel de cartas -->
-  <section id="">
-    <div class="container mt-5 bg-transparent-black" style="max-width: 1100px;">
-        <div id="carouselCards" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner">
-                <!-- Primer grupo de tarjetas -->
-                <div class="carousel-item active" id="productosDestacados">
-                    <!-- Esto se inserta dinamicamente -->
-                </div>
-
-                <!-- Segundo grupo de tarjetas -->
-                <div class="carousel-item" id="productosDestacados2">
-                    <!-- Esto se inserta dinamicamente -->
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselCards" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
-        </div>
-    </div>
-  </section>
-
-    <section id="aDifferentSec">
-        <div id="toDoSpace">
-            <input type="text" id="nameTask">
-            <button id="createBtn" class="btnProc">Crear una tarea</button>
-            <div id="listToDo">
-              <!-- Se agregan dinamicamente -->
-            </div>
-        </div>
-
-
-
-    <!-- Seccion de la tarea de clases Israel y camilo -->
-    <section id="formSpace">
-
-      <div class="containercrud">
-        <div class="row justify-content-center">
-          <div class="col-7">
-            <h2 class="text-center">Pedidos</h2>
-            <button id="btnSave">Descargar Inventario</button>
-          </div>
-          <div class="col-7">
-            <form class="p-4 border rounded">
-              <div class="mb-3">
-                <label class="form-label">Cliente</label>
-                <input type="text" class="cliente form-control">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Producto</label>
-                <select class="producto form-select">
-                  <option value="Select">--Select--</option>
-                  <option value="Aguacates">Aguacates</option>
-                  <option value="Peras">Peras</option>
-                  <option value="Piñas">Piñas</option>
-                  <option value="Tomates">Tomates</option>
-                  <option value="Manzanas">Manzanas</option>
-                  <option value="Cebolla">Cebolla</option>
-                  <option value="Queso">Queso</option>
-                  <option value="Guayaba">Guayaba</option>
-                  <option value="Cilantro">Cilantro</option>
-                  <option value="Perejil">Perejil</option>
-                  <option value="Saumerio">Saumerio</option>
-                </select>
-                <div class="mb-3">
-                  <label class="form-label">Precio</label>
-                  <input type="number" min="5000" max="100000"class="precio form-control">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Imagen</label>
-                  <input type="url" class="imagen form-control">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Observacion</label>
-                  <input type="text" class="observacion form-control">
-                </div>
-              </div>
-              <button type="button" class="btnguardar btn btn-primary">Guardar Pedido</button>
-            </form>
-          </div>
-          <div id="inventaryCards"></div>
-            
-          </div>
-        </div>
-      </div>
     </section>
-  </section>
 
  <!-- Footer  --> 
     <footer class="footer-20192">
