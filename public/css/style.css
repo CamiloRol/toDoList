@@ -107,7 +107,7 @@ section {
 
 
 #toDoSpace {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     background: linear-gradient(to left,rgba(147, 168, 28, 0.411),rgba(116, 253, 139, 0.452));
     justify-content: center;
@@ -119,6 +119,10 @@ section {
     border-radius: 20px;
     margin-top: 25px;
     gap: 5px;
+}
+
+#formSpace {
+  display: none;
 }
 
 #listToDo {

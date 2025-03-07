@@ -1,7 +1,7 @@
 const { jsPDF } = window.jspdf;
 
 class LocalStorage {
-  constructor(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, secProducts, fila) {
+  constructor(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila) {
       this.clienteInput = clienteInput
       this.productoInput = productoInput
       this.precioInput = precioInput
@@ -10,7 +10,6 @@ class LocalStorage {
       this.btnGuardar = btnGuardar
       this.tabla = tabla
       this.d = d
-      this.secProducts = secProducts
       this.fila = fila
       this.jsPDF = new jsPDF();
   }
