@@ -1,4 +1,4 @@
-class Cart {
+/* class Cart {
     constructor(productos, d, contenDestacados, contenDestacados2, secProducts, cartCount) {
         this.d = d
         this.contenDestacados = contenDestacados
@@ -110,11 +110,9 @@ class Cart {
     }
 }
 
-export default Cart;
+export default Cart; */
 
 //esta es la clase que crea chat gpt para revision
-
-/* 
 
 class Cart {
     constructor(productos, d, contenDestacados, contenDestacados2, secProducts, cartCount) {
@@ -124,9 +122,8 @@ class Cart {
         this.productos = productos;
         this.secProducts = secProducts;
         this.carrito = [];
-        this.cartCount = cartCount;
-        this.contenedorCarrito = this.d.getElementById("offcanvasCartBody");
         this.cartCountElement = this.d.getElementById("cartCount");
+        this.cartItemsContainer = this.d.getElementById("cartItems");
     }
 
     insertProducts() {
@@ -188,6 +185,10 @@ class Cart {
         }
 
         this.actualizarCarrito();
+        // maracibo esto va a mostrar el carrito cada vez que agregamos un producto
+        const offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"));
+        offcanvasElement.show();
+
     }
 
     borrarDelCarrito(productoId) {
@@ -196,25 +197,29 @@ class Cart {
     }
 
     actualizarCarrito() {
-        if (!this.contenedorCarrito) {
+        if (!this.cartItemsContainer) {
             console.error("Error: No se encontró el contenedor del carrito.");
             return;
         }
 
-        this.contenedorCarrito.innerHTML = "";
+        this.cartItemsContainer.innerHTML = "";
 
-        this.carrito.forEach(producto => {
-            const itemCarrito = this.d.createElement("div");
-            itemCarrito.classList.add("carrito-item");
-            itemCarrito.innerHTML = `
-                <p>${producto.nombre} - $${producto.precio} x ${producto.cantidad}</p>
-                <button class="btn btn-danger btn-sm borrar-carrito" data-id="${producto.id}">Eliminar</button>
-            `;
-            this.contenedorCarrito.appendChild(itemCarrito);
-        });
+        if (this.carrito.length === 0) {
+            this.cartItemsContainer.innerHTML = '<li class="list-group-item text-center text-muted">Tu carrito está vacío</li>';
+        } else {
+            this.carrito.forEach(producto => {
+                const itemCarrito = this.d.createElement("li");
+                itemCarrito.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+                itemCarrito.innerHTML = `
+                    ${producto.nombre} - $${producto.precio} x ${producto.cantidad}
+                    <button class="btn btn-danger btn-sm borrar-carrito" data-id="${producto.id}">Eliminar</button>
+                `;
+                this.cartItemsContainer.appendChild(itemCarrito);
+            });
+        }
 
         // Actualizar el contador del carrito
-        this.cartCountElement.textContent = this.carrito.length;
+        this.cartCountElement.textContent = this.carrito.reduce((total, item) => total + item.cantidad, 0);
 
         // Agregar eventos a los botones de eliminar
         this.d.querySelectorAll(".borrar-carrito").forEach(boton => {
@@ -227,6 +232,3 @@ class Cart {
 }
 
 export default Cart;
-
-
-*/
