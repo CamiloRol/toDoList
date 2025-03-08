@@ -1,21 +1,5 @@
 @import "/node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-/* .carrito{
-  background-color: transparent;
-  padding: 5px 4px;
-  border-radius: 50%;
-  position: relative;
-} */
-
-/*#resumeCart {
-  display: none;
-  width: 120px;
-  background-color: lightgreen;
-  position: relative;
-  top: 52px;
-  left: -1.5%;
-}*/
-/* Estilos del botón del carrito */
 .btn-cart {
   background: none;
   border: none;
@@ -141,22 +125,12 @@ section {
   justify-content: center;
   justify-items: center;
 }
-/* .carousel-inner {
-  display: flex;
-}
-.carousel-item {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-} */
+
 .bg-transparent-black {
   background: rgba(0, 0, 0, 0.7); 
   padding: 20px;
   border-radius: 10px; }
 
-
-
-/* Form todo space */
 #nameTask {
   margin-top: 25px;
   width: 100%; 
