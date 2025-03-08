@@ -15,103 +15,116 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-  </head>
+</head>
+
 <body>
+
     <header>
-          <nav class="navbar navbar-expand-lg " >
-            <div class="container">
-              <a class="navbar-brand" href="/index.html">
-                <img src="/recursos/logo.png" alt="Bootstrap" width="82" height="82">
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                 
-                  <li class="nav-item dropdown">
-                    
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Nosotros
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/html/procAndTools.html">Herramientas</a></li>
-                      <li><a class="dropdown-item" href="/html/aboutUs.html">Acerca de Nosotros </a></li>
-                      <li><a class="dropdown-item" href="/html/contactUs.html">Contactanos </a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><button class="dropdown-item" id="btnRegister">Registrarse
-                        
-                      </button></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Proyectos
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <button class="dropdown-item" id="btnToDo">ToDoList</button>
-                      </li>
-                      <li><button class="dropdown-item" id="btnForm">FormInventory </button></li>
-                      <li><button class="dropdown-item" >ComingSoon </button></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="html/products.html" role="button" aria-expanded="false">
-                      Productos
-                    </a>
-                  </li>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">
+            <img src="/recursos/logo.png" alt="Bootstrap" width="82" height="82">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Nosotros
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/html/procAndTools.html">Herramientas</a></li>
+                  <li><a class="dropdown-item" href="/html/aboutUs.html">Acerca de Nosotros</a></li>
+                  <li><a class="dropdown-item" href="/html/contactUs.html">Contáctanos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><button class="dropdown-item" id="btnRegister">Registrarse</button></li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" size="1" maxlength="30" type="email" placeholder="E-mail" aria-label="Search">
-                  <input class="form-control me-2"  maxlength="30" type="password" placeholder="Password" aria-label="Search">
-                  <button class="btn btn-outline-success btn-light" type="submit">Login</button>
-                </form>
-                <div class="carrito">
-                  <i class="bi bi-cart-dash"></i>
-                  <span class="contar-pro">0</span>
-                </div>
-              </div>
-            </div>
-          </nav>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Proyectos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><button class="dropdown-item" id="btnToDo" style="color: white;">ToDoList</button></li>
+                  <li><button class="dropdown-item" id="btnForm" style="color: white;">FormInventory</button></li>
+                  <li><button class="dropdown-item"><a href="/html/jsonPlaceholder.html">JSONPlaceholder</a></button></li>
+                  <li><button class="dropdown-item"><a href="/html/openWeather.html">OpenWeather</a></button></li>
+                  <li><button class="dropdown-item"><a href="/html/pokeApi.html">PokeAPI</a></button></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="html/products.html">Productos</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" size="1" maxlength="30" type="email" placeholder="E-mail">
+              <input class="form-control me-2" maxlength="30" type="password" placeholder="Password">
+              <button class="btn btn-outline-success btn-light" type="submit">Login</button>
+            </form>
 
-    </header>
-
-    <section id="banner">
-      <img src="recursos/imageniafondo2.jpg" alt="bnn">
-    </section>
-
-    <section>
-      <div class="container mt-5 bg-transparent-black" style="max-width: 1100px;">
-          <div id="carouselCards" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-              <div class="carousel-inner">
-                  <!-- Primer grupo de tarjetas -->
-                  <div class="carousel-item active" id="productosDestacados">
-                      <!-- Esto se inserta dinamicamente -->
-                  </div>
-  
-                  <!-- Segundo grupo de tarjetas -->
-                  <div class="carousel-item" id="productosDestacados2">
-                      <!-- Esto se inserta dinamicamente -->
-                  </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Anterior</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselCards" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Siguiente</span>
-              </button>
+            <!-- Botón para abrir el carrito -->
+            <button class="btn btn-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" id="btnOffcanva">
+              <i class="bi bi-cart-dash fs-4"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" id="cartCount">0</span>
+            </button>
           </div>
-      </div>
-  </section>
-  
-  
-  
+        </div>
+      </nav>
+    </header>
     
-  
+    <!-- offcanvas para el carrito que ale a la derecha-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCartBody">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Carrito de Compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="cartItems" class="list-group mb-3">
+          <li class="list-group-item text-center text-muted">Tu carrito está vacío</li>
+        </ul>
+        <button class="btn btn-success w-100"><a href="/html/resume.html">Finalizar compra</a></button>
+      </div>
+    </div>
+
+
+  <!-- Imagen inicial larga y boton -->
+  <section id="banner" style="position: relative; display: inline-block;">
+      <img src="recursos/finalone.png" alt="bnn" style="width: 100%; height: auto;">
+      <a href="#" class="btn" style="position: absolute; bottom: 20px; right: 20px; background-color: #8d1c62; color: white; border: none; padding: 10px 20px; font-weight: bold; text-decoration: none; transition: background-color 0.3s ease;">Shop Now</a>
+  </section>
+
+  <section>
+    <h2>"Por que no es lo mismo que la verdura este bien a verla bien dura"</h2>
+  </section>
+
+  <!-- Carrousel de cartas -->
+  <section id="">
+    <div class="container mt-5 bg-transparent-black" style="max-width: 1100px;">
+        <div id="carouselCards" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <!-- Primer grupo de tarjetas -->
+                <div class="carousel-item active" id="productosDestacados">
+                    <!-- Esto se inserta dinamicamente -->
+                </div>
+
+                <!-- Segundo grupo de tarjetas -->
+                <div class="carousel-item" id="productosDestacados2">
+                    <!-- Esto se inserta dinamicamente -->
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCards" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </div>
+  </section>
 
     <section id="aDifferentSec">
         <div id="toDoSpace">
@@ -121,6 +134,8 @@
               <!-- Se agregan dinamicamente -->
             </div>
         </div>
+
+
 
     <!-- Seccion de la tarea de clases Israel y camilo -->
     <section id="formSpace">
@@ -177,6 +192,7 @@
     </section>
   </section>
 
+ <!-- Footer  --> 
     <footer class="footer-20192">
       <div class="site-section">
         <div class="container">

@@ -1,11 +1,33 @@
 @import "/node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-.carrito{
-  background-color: transparent;
-  padding: 5px 4px;
-  border-radius: 50%;
+.btn-cart {
+  background: none;
+  border: none;
   position: relative;
 }
+.btn-cart i {
+  font-size: 24px;
+  color: white;
+}
+.btn-cart .badge {
+  font-size: 12px;
+  padding: 4px 6px;
+}
+
+/* Estilos del offcanvas que sale a la derecha maracaibo*/
+.offcanvas {
+  background-color: #f8f9fa;
+}
+.offcanvas-header {
+  background-color: #2E7D32;
+  color: white;
+}
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .contar-pro{
   position: absolute;
   top: 0;
@@ -16,7 +38,7 @@
   font-size: 10px;
 }
 
-/* hover inserted to scale the Icon */
+/* hover inserted to scale the Icon on navbar and navbar */
 .container img:hover{
   transform: scale(1.1);
   transition: all 0.2s;
@@ -46,6 +68,7 @@
     padding: 0;
 } 
 
+/* Banner and buttom */
 #banner {
   width: 100%;
   margin-top: 25px;
@@ -55,16 +78,38 @@
 
 /*   object-fit: cover */
   width: 99%;
-  margin-left: 6px;
+  
   opacity: 5; 
 }
-
+.btn:hover {
+  background-color: #90EE90;
+  color: black;
+}
 .pic img {
   width: 75%;
   border-radius: 25px;
-  box-shadow: 10px 10px 45px black;
+  box-shadow: 10px 10px 45px rgb(17, 17, 17);
 }
 
+/* Carrousel */
+.card {
+  width: 15rem;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 8px; /* Espaciado entre tarjetas */
+}
+.card img {
+  height: 160px;
+  object-fit: cover;
+}
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 section {
     display: grid;
     grid-template-columns: 100%;
@@ -72,20 +117,19 @@ section {
                         75%;
     justify-content: center;
     justify-items: center;
-    margin-bottom: 242px;
-}
-
-#inventaryCards {
+    margin-bottom: 62px;
+} 
+ #inventaryCards {
   display: grid;
   grid-template-columns: 50% 50%;
   justify-content: center;
   justify-items: center;
 }
 
-.card{
-  margin-bottom: 25px;
-}
-/* israel propiedades */
+.bg-transparent-black {
+  background: rgba(0, 0, 0, 0.7); 
+  padding: 20px;
+  border-radius: 10px; }
 
 #nameTask {
   margin-top: 25px;
@@ -99,12 +143,10 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-
 #nameTask:focus {
   border-color: #2ecc71;
   box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
 }
-
 
 #toDoSpace {
     display: none;
@@ -175,14 +217,12 @@ i {
 .icono-editar {
   color: antiquewhite;
 }
-
 .icono-completar:hover,
 .icono-eliminar:hover,
 .icono-editar:hover {
   background-color: rgba(255, 255, 255, 0.523);
   border-radius: 14px;
 }
-
 .btnProc:hover{
   background-color: #49d645; 
   color: #ffffff;
@@ -198,28 +238,7 @@ i {
     /* background-color: #407ba6; */
 }
 
-
-/* Este es el del carrousel */
-
-.carousel-inner {
-  display: flex;
-}
-.carousel-item {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-.card {
-  width: 18rem;
-}
-
-.bg-transparent-black {
-  background: rgba(0, 0, 0, 0.7); /* Negro con 70% de transparencia */
-  padding: 20px;
-  border-radius: 10px; /* Bordes redondeados para mejor apariencia */}
-
-/* Este es el color para la propiedad boostrap del form */
-
+/*Container local storage crud  exercise*/
 .containercrud form{
   background-color: #0e1f0c86;
   color :#fafbfc;
@@ -229,6 +248,7 @@ i {
   color: #24a713;
 }
 
+/* Body */
 body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
     background-image: url("/recursos/background.jpg");
@@ -239,12 +259,9 @@ body {
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
-
-
 body.fade-out {
   opacity: 0;
 }
-  
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
@@ -255,10 +272,11 @@ body.fade-out {
     transition: .3s all ease; }
     a, a:hover {
       text-decoration: none !important; }
-  
+   
   .content {
     height: 70vh; }
   
+/* Footer */
   .footer-20192 {
     position: relative;
     color: #fff;

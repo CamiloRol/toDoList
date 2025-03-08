@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const sql = require('mssql');
 const path = require('path')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
+const fetch = require('node-fetch')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -71,6 +72,21 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ message: "Error en la autenticación", error });
     }
 });
+
+app.get('/html/jsonPlaceholder.html', async (req, res) => {
+    
+        try {
+            let URL = "https://jsonplaceholder.typicode.com/photos"
+            let data = await fetch(URL)
+            let photos = await data.json();
+            
+            res.json(photos.slice(0, 10)); 
+           
+        } catch (error) {
+            console.log(error);
+        }
+    
+})
 
 // Servir la página principal
 app.get('/', (req, res) => {
