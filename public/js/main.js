@@ -36,7 +36,8 @@ const contenDestacados = d.querySelector("#productosDestacados")
 const contenDestacados2 = d.querySelector("#productosDestacados2")
 const cartCount = d.querySelector("#cartCount").textContent
 const resumeCart = d.getElementById("resumeCart")
-
+const offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"))
+const btnOffcanva =  d.getElementById("btnOffcanva")
 
 
 let fila = d.createElement("div")
@@ -47,7 +48,7 @@ const obj = new ToDo(nameTask, listToDo)
 const cartToBuy = new ResumeCart()
 
 window.addEventListener("DOMContentLoaded", () => {
-    const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
+    const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts, cartCount, offcanvasElement)
     cart.insertProducts()
     storage.validar();  
     storage.mostrarDatos();
@@ -79,9 +80,9 @@ btnForm.addEventListener("click", () => {
     formSpace.style.display = formSpace.style.display === "none" ? "grid" : "none";
 });
 
-/* cartCount.addEventListener("click", () => {
-    resumeCart.style.display = resumeCart.style.display === "none" ? "flex" : "none";
-}) */
+btnOffcanva.addEventListener("click", () => {
+    offcanvasElement.show()
+})
 
 createBtn.addEventListener('click', () => {
     obj.createDo()
