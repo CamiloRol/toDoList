@@ -34,24 +34,21 @@ const tabla = d.querySelector("#inventaryCards");
 const secProducts = d.getElementById("productsToSell")
 const contenDestacados = d.querySelector("#productosDestacados")
 const contenDestacados2 = d.querySelector("#productosDestacados2")
-const cartCount = d.querySelector("#cartCount").textContent
 const resumeCart = d.getElementById("resumeCart")
-const offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"))
-const btnOffcanva =  d.getElementById("btnOffcanva")
-
 
 let fila = d.createElement("div")
 
 
-const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila, cartCount);
+const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila);
 const obj = new ToDo(nameTask, listToDo)
 const cartToBuy = new ResumeCart()
 
 window.addEventListener("DOMContentLoaded", () => {
-    const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts, cartCount, offcanvasElement)
+    const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
     cart.insertProducts()
     storage.validar();  
     storage.mostrarDatos();
+    cargarFotos()
 })
 
 
@@ -80,10 +77,6 @@ btnForm.addEventListener("click", () => {
     formSpace.style.display = formSpace.style.display === "none" ? "grid" : "none";
 });
 
-btnOffcanva.addEventListener("click", () => {
-    offcanvasElement.show()
-})
-
 createBtn.addEventListener('click', () => {
     obj.createDo()
 })
@@ -93,3 +86,23 @@ nameTask.addEventListener('keydown', (e) => {
     obj.createDo()
   }
 })
+async function cargarFotos() {
+    try {
+                let response = await fetch('/api/photos'); // Llamamos al servidor
+                let fotos = await response.json();
+
+                let gallery = document.getElementById("gallery");
+                gallery.innerHTML = ""; // Limpiar antes de agregar
+
+                fotos.forEach((foto) => {
+                    gallery.innerHTML += `
+                        <div class="card">
+                            <h2>${foto.title}</h2>
+                            <img src="${foto.thumbnailUrl}" alt="${foto.title}">
+                        </div>
+                    `;
+                })
+    } catch (error) {
+        console.log(error);
+    }
+}
