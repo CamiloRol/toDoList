@@ -2,6 +2,7 @@ import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
 import Cart from "./cart.js";
 import ResumeCart from "./resumeCart.js";
+import WeatherApp from "./weatherapp.js";
 window.jsPDF = window.jspdf.jsPDF;
 
 const productos = [
@@ -38,7 +39,16 @@ const cartCount = d.querySelector("#cartCount").textContent
 const resumeCart = d.getElementById("resumeCart")
 const offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"))
 const btnOffcanva =  d.getElementById("btnOffcanva")
-
+const searchBtn = document.querySelector('.search-btn');
+const cityInput = document.querySelector('.city-input');
+const countryTxt = document.querySelector('.country-txt')
+const tempTxt = document.querySelector('.temp-txt')
+const conditionTxt = document.querySelector('.condition-txt')
+const humidityValueTxt = document.querySelector('.humidity-value-txt')
+const windValueTxt = document.querySelector('.wind-value-txt')
+const weatherSummaryImg = document.querySelector('.weather-summary-img')
+const currentDateTxt = document.querySelector('.current-date-txt')
+const apiKey = '58adc3c83c341945334bfae70849a2ba';
 
 let fila = d.createElement("div")
 
@@ -46,6 +56,7 @@ let fila = d.createElement("div")
 const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila, cartCount);
 const obj = new ToDo(nameTask, listToDo)
 const cartToBuy = new ResumeCart()
+const weatherLink = new WeatherApp(searchBtn)
 
 window.addEventListener("DOMContentLoaded", () => {
     const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts, cartCount, offcanvasElement)
@@ -93,3 +104,81 @@ nameTask.addEventListener('keydown', (e) => {
     obj.createDo()
   }
 })
+
+searchBtn.addEventListener('click', () => {
+    if(cityInput.value.trim() != '') {
+        updateWeatherInfo(cityInput.value);
+        cityInput.value = '';
+        cityInput.blur();
+    }
+    
+});
+
+cityInput.addEventListener('keydown', (event) => {
+    if (event.key == 'Enter' &&
+        cityInput.value.trim() != ''
+     ) {
+        updateWeatherInfo(cityInput.value);
+        cityInput.value = '';
+        cityInput.blur();
+     }
+})
+
+async function getFetchData(endPoint, city) {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${apiKey}&units=metric`
+
+    const response = await fetch(apiUrl)
+
+    return response.json()
+}
+
+async function updateWeatherInfo(city) {
+    const weatherData = await getFetchData('weather', city);
+
+    if (weatherData.cod != 200) {
+        weatherLink.showDisplaySection(notFoundSection)
+        return
+    }
+
+    console.log(weatherData)
+
+    const {
+        name: country,
+        main: { temp, humidity },
+        weather: [{ id, main }],
+        wind: {speed}
+
+    } = weatherData
+
+    countryTxt.textContent = country
+    tempTxt.textContent = Math.round(temp) + ' °C'
+    conditionTxt.textContent = main
+    humidityValueTxt.textContent = humidity + '%'
+    windValueTxt.textContent = speed + 'M/s'
+
+    currentDateTxt.textContent = weatherLink.getCurrentDate()
+    weatherSummaryImg.src = `assets/weather/${weatherLink.getWeatherIcon(id)}`
+
+    await updateForecastsInfo(city)
+    weatherLink.showDisplaySection(weatherInfoSection);
+
+}
+
+async function updateForecastsInfo(city){
+    const forecastData = await weatherLink.getFetchData('forecast', city)
+
+    const timeTaken = '12:00:00'
+    const todayDate = new Date().toISOString().split('T')[0]
+
+
+    forecastItemsContainer.innerHTML = ''
+
+
+    forecastData.list.forEach(forecastWeather => {
+        if (forecastWeather.dt_txt.includes(timeTaken) && !forecastWeather.dt_txt.includes(todayDate)){
+            weatherLink.updateForecastsItems(forecastWeather)
+        }
+        
+    })
+    
+}
