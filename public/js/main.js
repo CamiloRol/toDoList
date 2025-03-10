@@ -2,7 +2,7 @@ import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
 import Cart from "./cart.js";
 import ResumeCart from "./resumeCart.js";
-window.jsPDF = window.jspdf.jsPDF;
+import {PokeApi} from "./pokeapi.js";
 
 const productos = [
     {id: 1, nombre: "Tomates Frescos", precio:1200, imagen: "/recursos/Tomates.jpg"},
@@ -37,19 +37,71 @@ const contenDestacados2 = d.querySelector("#productosDestacados2")
 const resumeCart = d.getElementById("resumeCart")
 
 let fila = d.createElement("div")
+let path = window.location.pathname;
+
 
 
 const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila);
 const obj = new ToDo(nameTask, listToDo)
 const cartToBuy = new ResumeCart()
 
-window.addEventListener("DOMContentLoaded", () => {
+if (path.includes("index.html")) {
+    window.jsPDF = window.jspdf.jsPDF;
+
     const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
     cart.insertProducts()
     storage.validar();  
     storage.mostrarDatos();
+
+    btnSave.addEventListener("click", () => {
+        storage.exportarInven()
+    })
+    
+    btnToDo.addEventListener("click", () => {
+        toDoSpace.style.display = toDoSpace.style.display === "none" ? "flex" : "none";
+    });
+    
+    btnForm.addEventListener("click", () => {
+        formSpace.style.display = formSpace.style.display === "none" ? "grid" : "none";
+    });
+    
+    createBtn.addEventListener('click', () => {
+        obj.createDo()
+    })
+
+    nameTask.addEventListener('keydown', (e) => {
+        if (e.key == 'Enter') {
+          obj.createDo()
+        }
+      })
+} else if (path.includes("pokeApi.html")) {
+    const pok = new PokeApi([])
+    pok.initPok()    
+    
+} else if (path.includes("jsonPlaceholder.html")){
     cargarFotos()
-})
+
+    async function cargarFotos() {
+        try {
+                    let response = await fetch('/api/photos'); // Llamamos al servidor
+                    let fotos = await response.json();
+    
+                    let gallery = document.getElementById("gallery");
+                    gallery.innerHTML = ""; // Limpiar antes de agregar
+    
+                    fotos.forEach((foto) => {
+                        gallery.innerHTML += `
+                            <div class="card">
+                                <h2>${foto.title}</h2>
+                                <img src="${foto.thumbnailUrl}" alt="${foto.title}">
+                            </div>
+                        `;
+                    })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
 
 d.addEventListener("click", (event) => {
@@ -65,44 +117,5 @@ d.addEventListener("click", (event) => {
     }
 });
 
-btnSave.addEventListener("click", () => {
-    storage.exportarInven()
-})
 
-btnToDo.addEventListener("click", () => {
-    toDoSpace.style.display = toDoSpace.style.display === "none" ? "flex" : "none";
-});
 
-btnForm.addEventListener("click", () => {
-    formSpace.style.display = formSpace.style.display === "none" ? "grid" : "none";
-});
-
-createBtn.addEventListener('click', () => {
-    obj.createDo()
-})
-
-nameTask.addEventListener('keydown', (e) => {
-  if (e.key == 'Enter') {
-    obj.createDo()
-  }
-})
-async function cargarFotos() {
-    try {
-                let response = await fetch('/api/photos'); // Llamamos al servidor
-                let fotos = await response.json();
-
-                let gallery = document.getElementById("gallery");
-                gallery.innerHTML = ""; // Limpiar antes de agregar
-
-                fotos.forEach((foto) => {
-                    gallery.innerHTML += `
-                        <div class="card">
-                            <h2>${foto.title}</h2>
-                            <img src="${foto.thumbnailUrl}" alt="${foto.title}">
-                        </div>
-                    `;
-                })
-    } catch (error) {
-        console.log(error);
-    }
-}
