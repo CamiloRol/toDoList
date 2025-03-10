@@ -1,14 +1,16 @@
 class Cart {
-    constructor(productos, d, contenDestacados, contenDestacados2, secProducts, cartCount, offcanvasElement) {
+    constructor(productos, d, contenDestacados, contenDestacados2, secProducts) {
         this.d = d;
         this.contenDestacados = contenDestacados;
         this.contenDestacados2 = contenDestacados2;
         this.productos = productos;
         this.secProducts = secProducts;
         this.carrito = [];
-        this.cartCountElement = cartCount
+        this.cartCountElement = d.querySelector("#cartCount").textContent
         this.cartItemsContainer = this.d.getElementById("cartItems");
-        this.offcanvasElement = offcanvasElement
+        this.offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"))
+        
+        this.executeBtn()
     }
 
     insertProducts() {
@@ -110,6 +112,14 @@ class Cart {
             boton.addEventListener("click", (event) => {
                 const productoId = parseInt(event.target.dataset.id);
                 this.borrarDelCarrito(productoId);
+            });
+        });
+    }
+
+    executeBtn() {
+        this.d.querySelectorAll(".btnOffcanva").forEach((boton) => {
+            boton.addEventListener("click", (event) => {
+                this.offcanvasElement.show()
             });
         });
     }

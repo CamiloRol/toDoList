@@ -73,7 +73,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.get('/html/jsonPlaceholder.html', async (req, res) => {
+app.get('/api/photos', async (req, res) => {
     
         try {
             let URL = "https://jsonplaceholder.typicode.com/photos"
