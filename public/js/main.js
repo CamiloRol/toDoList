@@ -47,7 +47,7 @@ let path = window.location.pathname;
 const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila);
 const obj = new ToDo(nameTask, listToDo)
 const cartToBuy = new ResumeCart()
-const weatherLink = new WeatherApp(searchBtn)
+
 
 if (path.includes("index.html")) {
     window.jsPDF = window.jspdf.jsPDF;
@@ -87,7 +87,7 @@ if (path.includes("index.html")) {
 
     async function cargarFotos() {
         try {
-                    let response = await fetch('/api/photos'); // Llamamos al servidor
+                    let response = await fetch('/api/photos');
                     let fotos = await response.json();
     
                     let gallery = document.getElementById("gallery");
@@ -125,6 +125,8 @@ if (path.includes("index.html")) {
             cityInput.blur();
         }
     })
+
+    const weatherLink = new WeatherApp(searchBtn)
 }
 
 d.addEventListener("click", (event) => {
