@@ -106,27 +106,25 @@ if (path.includes("index.html")) {
         }
     }
 }else if (path.includes("openWeather.html")) {
-
+    const weatherLink = new WeatherApp()
+    
     searchBtn.addEventListener('click', () => {
         if(cityInput.value.trim() != '') {
-            updateWeatherInfo(cityInput.value);
+            weatherLink.updateWeatherInfo(cityInput.value);
             cityInput.value = '';
             cityInput.blur();
         }
-        
     });
 
     cityInput.addEventListener('keydown', (event) => {
         if (event.key == 'Enter' &&
             cityInput.value.trim() != ''
         ) {
-            updateWeatherInfo(cityInput.value);
+            weatherLink.updateWeatherInfo(cityInput.value);
             cityInput.value = '';
             cityInput.blur();
         }
     })
-
-    const weatherLink = new WeatherApp(searchBtn)
 }
 
 d.addEventListener("click", (event) => {
