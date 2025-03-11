@@ -9,6 +9,7 @@ class Cart {
         this.cartCountElement = d.querySelector("#cartCount").textContent
         this.cartItemsContainer = this.d.getElementById("cartItems");
         this.offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"))
+        this.btnOffcanva =  d.getElementById("btnOffcanva")
         
         this.executeBtn()
     }
