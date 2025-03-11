@@ -1,9 +1,17 @@
-class WeatherApp {
+export class WeatherApp {
     constructor(searchBtn) {
         this.searchBtn = searchBtn
         this.weatherInfoSection = document.querySelector('.weather-info')
         this.notFoundSection = document.querySelector('.not-found')
         this.searchCitySection = document.querySelector('.search-city')
+        this.countryTxt = document.querySelector('.country-txt')
+        this.tempTxt = document.querySelector('.temp-txt')
+        this.conditionTxt = document.querySelector('.condition-txt')
+        this.humidityValueTxt = document.querySelector('.humidity-value-txt')
+        this.windValueTxt = document.querySelector('.wind-value-txt')
+        this.weatherSummaryImg = document.querySelector('.weather-summary-img')
+        this.currentDateTxt = document.querySelector('.current-date-txt')
+        this.apiKey = '58adc3c83c341945334bfae70849a2ba';
 
         this.forecastItemsContainer = document.querySelector('.forecast-items-container')
     }
@@ -46,21 +54,78 @@ class WeatherApp {
         const forecastItem = `
             <div class="forecast-item">
                 <h5 class="forecast-item-date regular-txt">${dateResult}</h5>
-                <img src="./assets/weather/${getWeatherIcon(id)}" class="forecast-item-img">
+                <img src="/recursos/${getWeatherIcon(id)}" class="forecast-item-img">
                 <h5 class="forecast-item-temp">${Math.round(temp)} °C</h5>
             </div>
         `
     
-        forecastItemsContainer.insertAdjacentHTML('beforeend', forecastItem)
+        this.forecastItemsContainer.insertAdjacentHTML('beforeend', forecastItem)
     
     }
 
     showDisplaySection(section) {
-        [this.weatherInfoSection, searchCitySection, notFoundSection].forEach(section => section.style.display = 'none')
+        [this.weatherInfoSection, this.searchCitySection, this.notFoundSection].forEach(section => section.style.display = 'none')
     
         section.style.display = 'flex';
     
     }
-}
 
-export default WeatherApp;
+    async getFetchData(endPoint, city) {
+        const apiUrl = `https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${apiKey}&units=metric`
+
+        const response = await fetch(apiUrl)
+
+        return response.json()
+    }
+
+    async updateWeatherInfo(city) {
+        const weatherData = await getFetchData('weather', city);
+
+        if (weatherData.cod != 200) {
+            this.weatherLink.showDisplaySection(this.notFoundSection)
+            return
+        }
+
+        console.log(weatherData)
+
+        const {
+            name: country,
+            main: { temp, humidity },
+            weather: [{ id, main }],
+            wind: {speed}
+
+        } = weatherData
+
+        this.countryTxt.textContent = country
+        this.tempTxt.textContent = Math.round(temp) + ' °C'
+        this.conditionTxt.textContent = main
+        this.humidityValueTxt.textContent = humidity + '%'
+        this.windValueTxt.textContent = speed + 'M/s'
+
+        this.currentDateTxt.textContent = this.weatherLink.getCurrentDate()
+        this.weatherSummaryImg.src = `/recursos/${weatherLink.getWeatherIcon(id)}`
+
+        await updateForecastsInfo(city)
+        this.weatherLink.showDisplaySection(this.weatherInfoSection);
+
+    }
+
+    async updateForecastsInfo(city){
+        const forecastData = await this.weatherLink.getFetchData('forecast', city)
+
+        const timeTaken = '12:00:00'
+        const todayDate = new Date().toISOString().split('T')[0]
+
+
+        this.forecastItemsContainer.innerHTML = ''
+
+
+        forecastData.list.forEach(forecastWeather => {
+            if (thisforecastWeather.dt_txt.includes(timeTaken) && !forecastWeather.dt_txt.includes(todayDate)){
+                this.weatherLink.updateForecastsItems(forecastWeather)
+            }
+            
+        })
+        
+    }
+}
