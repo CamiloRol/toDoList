@@ -18,61 +18,69 @@
 </head>
 
 <body>
-    <header>
-          <nav class="navbar navbar-expand-lg " >
-            <div class="container">
-              <a class="navbar-brand" href="/index.html">
-                <img src="/recursos/logo.png" alt="Bootstrap" width="82" height="82">
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html">
+          <img src="/recursos/logo.png" alt="Bootstrap" width="82" height="82">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Nosotros
               </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                 
-                  <li class="nav-item dropdown">
-                    
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Nosotros
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/html/procAndTools.html">Herramientas</a></li>
-                      <li><a class="dropdown-item" href="/html/aboutUs.html">Acerca de Nosotros </a></li>
-                      <li><a class="dropdown-item" href="/html/contactUs.html">Contactanos </a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><button class="dropdown-item" id="btnRegister">Registrarse
-                        
-                      </button></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Proyectos
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <button class="dropdown-item" id="btnToDo">ToDoList</button>
-                      </li>
-                      <li><button class="dropdown-item" id="btnForm">FormInventory </button></li>
-                      <li><button class="dropdown-item" >ComingSoon </button></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="html/products.html" role="button" aria-expanded="false">
-                      Productos
-                    </a>
-                  </li>
-                </ul>
-                <div class="carrito">
-                  <i class="bi bi-cart-dash"></i>
-                  <span class="contar-pro">0</span>
-                </div>
-              </div>
-            </div>
-          </nav>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/html/procAndTools.html">Herramientas</a></li>
+                <li><a class="dropdown-item" href="/html/aboutUs.html">Acerca de Nosotros</a></li>
+                <li><a class="dropdown-item" href="/html/contactUs.html">Contáctanos</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item" id="btnRegister">Registrarse</button></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Proyectos
+              </a>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" id="btnToDo" style="color: white;">ToDoList</button></li>
+                <li><button class="dropdown-item" id="btnForm" style="color: white;">FormInventory</button></li>
+                <li><button class="dropdown-item"><a href="/html/jsonPlaceholder.html">JSONPlaceholder</a></button></li>
+                <li><button class="dropdown-item"><a href="/html/openWeather.html">OpenWeather</a></button></li>
+                <li><button class="dropdown-item"><a href="/html/pokeApi.html">PokeAPI</a></button></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="html/products.html">Productos</a>
+            </li>
+          </ul>
 
-    </header>
+
+          <!-- Botón para abrir el carrito -->
+          <button class="btn btn-light position-relative btnOffcanva" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
+            <i class="bi bi-cart-dash fs-4"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCartBody">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Carrito de Compras</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul id="cartItems" class="list-group mb-3">
+        <li class="list-group-item text-center text-muted">Tu carrito está vacío</li>
+      </ul>
+      <button class="btn btn-success w-100"><a href="/html/resume.html">Finalizar compra</a></button>
+    </div>
+  </div>
 
     <section style="margin: 245px auto;">
 
