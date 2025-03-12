@@ -3,7 +3,6 @@ const express = require('express');
 const sql = require('mssql');
 const path = require('path')
 const bcrypt = require('bcrypt')
-const fetch = require('node-fetch')
 const axios = require('axios')
 
 const app = express();

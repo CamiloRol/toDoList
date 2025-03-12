@@ -46,10 +46,10 @@ let path = window.location.pathname;
 
 const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila);
 const obj = new ToDo(nameTask, listToDo)
-const cartToBuy = new ResumeCart()
+const cartToBuy = new ResumeCart() 
 
 
-if (path.includes("index.html")) {
+if (path.includes("index.html")){
     window.jsPDF = window.jspdf.jsPDF;
 
     const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
@@ -85,6 +85,8 @@ if (path.includes("index.html")) {
 } else if (path.includes("jsonPlaceholder.html")){
     const btnSearch = d.getElementById("btnSearch")
     
+
+    
     btnSearch.addEventListener("click", () => {
         buscarImagenes()
     })
@@ -96,12 +98,13 @@ if (path.includes("index.html")) {
             let response = await fetch(`/api/galeria?query=${query}`);
             let data = await response.json();
     
-            let galleryDiv = document.getElementById("gallery");
+            let galleryDiv = document.getElementById("gallery") ;
             galleryDiv.innerHTML = ""; // Limpiar galería
     
             data.gallery.forEach(url => {
                 let img = document.createElement("img");
                 img.src = url;
+                img.classList.add("gallery-img"); // esto lo toca isra y es paara  agregar el css 
                 galleryDiv.appendChild(img);
             });
         } catch (error) {
