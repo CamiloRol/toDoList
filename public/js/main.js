@@ -83,26 +83,29 @@ if (path.includes("index.html")) {
     pok.initPok()    
     
 } else if (path.includes("jsonPlaceholder.html")){
-    cargarFotos()
+    const btnSearch = d.getElementById("btnSearch")
+    
+    btnSearch.addEventListener("click", () => {
+        buscarImagenes()
+    })
 
-    async function cargarFotos() {
+    async function buscarImagenes() {   
+        let query = document.getElementById("searchQuery").value || "nature";
+
         try {
-                    let response = await fetch('/api/photos');
-                    let fotos = await response.json();
+            let response = await fetch(`/api/galeria?query=${query}`);
+            let data = await response.json();
     
-                    let gallery = document.getElementById("gallery");
-                    gallery.innerHTML = ""; // Limpiar antes de agregar
+            let galleryDiv = document.getElementById("gallery");
+            galleryDiv.innerHTML = ""; // Limpiar galería
     
-                    fotos.forEach((foto) => {
-                        gallery.innerHTML += `
-                            <div class="card">
-                                <h2>${foto.title}</h2>
-                                <img src="${foto.thumbnailUrl}" alt="${foto.title}">
-                            </div>
-                        `;
-                    })
+            data.gallery.forEach(url => {
+                let img = document.createElement("img");
+                img.src = url;
+                galleryDiv.appendChild(img);
+            });
         } catch (error) {
-            console.log(error);
+            console.error("Error al obtener imágenes:", error);
         }
     }
 }else if (path.includes("openWeather.html")) {
