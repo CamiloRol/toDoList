@@ -4,9 +4,12 @@ const sql = require('mssql');
 const path = require('path')
 const bcrypt = require('bcrypt')
 const fetch = require('node-fetch')
+const axios = require('axios')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const pexelURL = "https://api.pexels.com/v1/search"
+const pexelApi = "yTMGSruXPCeYXFzvMLmfPdyrUzC7DGmha65DzTNl3V2ZdjiBsw0ibqgg"
 
 // Configuración de SQL Server
 const dbConfig = {
@@ -73,20 +76,27 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.get('/api/photos', async (req, res) => {
-    
-        try {
-            let URL = "https://jsonplaceholder.typicode.com/photos"
-            let data = await fetch(URL)
-            let photos = await data.json();
-            
-            res.json(photos.slice(0, 10)); 
-           
-        } catch (error) {
-            console.log(error);
+app.get("/api/galeria", async (req, res) => {
+    try {
+        const query = req.query.query || "nature";
+        const response = await axios.get(pexelURL, {
+            headers: { Authorization: pexelApi },
+            params: { query, per_page: 10 }
+        });
+
+        let images = response.data.photos.map(photo => photo.src.medium);
+
+        // Completar con imágenes aleatorias si faltan
+        while (images.length < 10) {
+            images.push(`https://picsum.photos/400/300?random=${images.length}`);
         }
-    
-})
+
+        res.json({ gallery: images });
+    } catch (error) {
+        console.error("Error al obtener imágenes:", error);
+        res.status(500).json({ error: "Error interno del servidor" });
+    }
+});
 
 // Servir la página principal
 app.get('/', (req, res) => {

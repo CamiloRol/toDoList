@@ -243,6 +243,27 @@
     <script type="module" src="/js/main.js" defer></script>
     <script type="text/babel" src="./js/react/index.js"></script>
     <script src="/node_modules/jspdf/dist/jspdf.umd.min.js"></script>
-  
+    <script>
+      window.ChatWidgetConfig = {
+          webhook: {
+              url: 'http://localhost:5678/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat',
+              route: 'general'
+          },
+          branding: {
+              logo: './recursos/Proyecto Quitar fondo.png',
+              name: 'pearone', // Your company name
+              welcomeText: 'Hola 👋, Como te puedo ayudar?', //Welcome message
+              responseTimeText: 'Estamos en camino a brindarte respuesta' //Response time message
+          },
+          style: {
+              primaryColor: '#24a713', //Primary color
+              secondaryColor: '#90ee90', //Secondary color
+              position: 'right', //Position of the widget (left or right)
+              backgroundColor: '#ffffff', //Background color of the chat widget
+              fontColor: '#000000' //Text color for messages and interface
+          }
+      };
+      </script>
+      <script src="https://cdn.jsdelivr.net/gh/WayneSimpson/n8n-chatbot-template@ba944c3/chat-widget.js"></script>
 </body>
 </html>

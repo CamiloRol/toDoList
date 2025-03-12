@@ -1,6 +1,5 @@
 export class WeatherApp {
-    constructor(searchBtn) {
-        this.searchBtn = searchBtn
+    constructor() {
         this.weatherInfoSection = document.querySelector('.weather-info')
         this.notFoundSection = document.querySelector('.not-found')
         this.searchCitySection = document.querySelector('.search-city')
@@ -54,7 +53,7 @@ export class WeatherApp {
         const forecastItem = `
             <div class="forecast-item">
                 <h5 class="forecast-item-date regular-txt">${dateResult}</h5>
-                <img src="/recursos/${getWeatherIcon(id)}" class="forecast-item-img">
+                <img src="/recursos/${this.getWeatherIcon(id)}" class="forecast-item-img">
                 <h5 class="forecast-item-temp">${Math.round(temp)} °C</h5>
             </div>
         `
@@ -71,7 +70,7 @@ export class WeatherApp {
     }
 
     async getFetchData(endPoint, city) {
-        const apiUrl = `https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${apiKey}&units=metric`
+        const apiUrl = `https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${this.apiKey}&units=metric`
 
         const response = await fetch(apiUrl)
 
@@ -79,10 +78,10 @@ export class WeatherApp {
     }
 
     async updateWeatherInfo(city) {
-        const weatherData = await getFetchData('weather', city);
+        const weatherData = await this.getFetchData('weather', city);
 
         if (weatherData.cod != 200) {
-            this.weatherLink.showDisplaySection(this.notFoundSection)
+            this.showDisplaySection(this.notFoundSection)
             return
         }
 
@@ -102,16 +101,16 @@ export class WeatherApp {
         this.humidityValueTxt.textContent = humidity + '%'
         this.windValueTxt.textContent = speed + 'M/s'
 
-        this.currentDateTxt.textContent = this.weatherLink.getCurrentDate()
-        this.weatherSummaryImg.src = `/recursos/${weatherLink.getWeatherIcon(id)}`
+        this.currentDateTxt.textContent = this.getCurrentDate()
+        this.weatherSummaryImg.src = `/recursos/${this.getWeatherIcon(id)}`
 
-        await updateForecastsInfo(city)
-        this.weatherLink.showDisplaySection(this.weatherInfoSection);
+        await this.updateForecastsInfo(city)
+        this.showDisplaySection(this.weatherInfoSection);
 
     }
 
     async updateForecastsInfo(city){
-        const forecastData = await this.weatherLink.getFetchData('forecast', city)
+        const forecastData = await this.getFetchData('forecast', city)
 
         const timeTaken = '12:00:00'
         const todayDate = new Date().toISOString().split('T')[0]
@@ -121,8 +120,8 @@ export class WeatherApp {
 
 
         forecastData.list.forEach(forecastWeather => {
-            if (thisforecastWeather.dt_txt.includes(timeTaken) && !forecastWeather.dt_txt.includes(todayDate)){
-                this.weatherLink.updateForecastsItems(forecastWeather)
+            if (forecastWeather.dt_txt.includes(timeTaken) && !forecastWeather.dt_txt.includes(todayDate)){
+                this.updateForecastsItems(forecastWeather)
             }
             
         })
