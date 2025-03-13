@@ -2,7 +2,7 @@
 
 /* Galeria ajustes del front bb  */
 #gallery {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 200px); 
   gap: 10px;
