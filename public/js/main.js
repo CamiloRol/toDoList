@@ -25,19 +25,22 @@ const btnForm = d.getElementById("btnForm")
 const toDoSpace = d.getElementById("toDoSpace")
 const formSpace = d.getElementById("formSpace")
 const btnSave = d.getElementById("btnSave")
-const clienteInput = d.querySelector(".cliente");
-const productoInput = d.querySelector(".producto");
-const precioInput = d.querySelector(".precio");
-const imagenInput = d.querySelector(".imagen");
-const observacionInput = d.querySelector(".observacion");
-const btnGuardar = d.querySelector(".btnguardar");
-const tabla = d.querySelector("#inventaryCards");
+const clienteInput = d.querySelector(".cliente")
+const productoInput = d.querySelector(".producto")
+const precioInput = d.querySelector(".precio")
+const imagenInput = d.querySelector(".imagen")
+const observacionInput = d.querySelector(".observacion")
+const btnGuardar = d.querySelector(".btnguardar")
+const tabla = d.querySelector("#inventaryCards")
 const secProducts = d.getElementById("productsToSell")
 const contenDestacados = d.querySelector("#productosDestacados")
 const contenDestacados2 = d.querySelector("#productosDestacados2")
 const resumeCart = d.getElementById("resumeCart")
-const searchBtn = document.querySelector('.search-btn');
-const cityInput = document.querySelector('.city-input');
+const searchBtn = d.querySelector('.search-btn')
+const cityInput = d.querySelector('.city-input')
+const loginForm = d.getElementById("loginForm")
+const emailLogin = d.getElementById("emailLogin").value
+const passLogin = d.getElementById("passLogin").value
 
 let fila = d.createElement("div")
 let path = window.location.pathname;
@@ -46,10 +49,10 @@ let path = window.location.pathname;
 
 const storage = new LocalStorage(clienteInput, productoInput, precioInput, imagenInput, observacionInput, btnGuardar, tabla, d, fila);
 const obj = new ToDo(nameTask, listToDo)
-const cartToBuy = new ResumeCart()
+const cartToBuy = new ResumeCart() 
 
 
-if (path.includes("index.html")) {
+if (path.includes("index.html")){
     window.jsPDF = window.jspdf.jsPDF;
 
     const cart = new Cart(productos, d, contenDestacados, contenDestacados2, secProducts)
@@ -78,15 +81,40 @@ if (path.includes("index.html")) {
           obj.createDo()
         }
       })
+
+    loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault()
+
+        try {
+            const responseLogin = await fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({emailLogin, passLogin})
+            })
+
+            const data = await responseLogin.json()
+            if (responseLogin.ok) {
+                localStorage.setItem("token", data.token)
+                alert("Login exitoso")
+                /* window.location.href = "debe ir la pagina del index.html pero ocultando el formulario de login y trayendo el nombre completo del cliente" */
+            }else {
+                alert(data.message)
+            }
+        } catch (error) {
+            console.error("Error en login:", error)
+        }
+    })  
 } else if (path.includes("pokeApi.html")) {
     const pok = new PokeApi([])
     pok.initPok()    
     
 } else if (path.includes("jsonPlaceholder.html")){
     const btnSearch = d.getElementById("btnSearch")
-    
+    const galleryDiv = document.getElementById("gallery")
+
     btnSearch.addEventListener("click", () => {
         buscarImagenes()
+        galleryDiv.style.display = "grid"
     })
 
     async function buscarImagenes() {   
@@ -95,13 +123,13 @@ if (path.includes("index.html")) {
         try {
             let response = await fetch(`/api/galeria?query=${query}`);
             let data = await response.json();
-    
-            let galleryDiv = document.getElementById("gallery");
+
             galleryDiv.innerHTML = ""; // Limpiar galería
     
             data.gallery.forEach(url => {
                 let img = document.createElement("img");
                 img.src = url;
+                img.classList.add("gallery-img"); // esto lo toca isra y es paara  agregar el css 
                 galleryDiv.appendChild(img);
             });
         } catch (error) {

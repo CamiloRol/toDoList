@@ -3,8 +3,9 @@ const express = require('express');
 const sql = require('mssql');
 const path = require('path')
 const bcrypt = require('bcrypt')
-const fetch = require('node-fetch')
 const axios = require('axios')
+const cors = require('cors')
+const jwt = require('jsonwebtoken')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,7 @@ async function connectDB() {
 }
 
 // Middleware
+app.use(cors())
 app.use(express.json())
 app.use(express.static('public'));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
@@ -53,7 +55,7 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const pool = await sql.connect();
+        const pool = await sql.connect(dbConfig);
         const result = await pool.request()
             .input('email', sql.VarChar, email)
             .query('SELECT * FROM Users WHERE emailUsers = @email');
@@ -70,7 +72,15 @@ app.post('/login', async (req, res) => {
             return res.status(401).json({ message: "❌ Contraseña incorrecta" });
         }
 
-        res.json({ message: "✅ Inicio de sesión exitoso", user });
+        const token = jwt.sign(
+            {id: user.id,
+             usuario: user.email   
+            },
+            process.env.JWT_SECRET,
+            {expiresIn: "1h"}
+        )
+
+        res.json({ token });
     } catch (error) {
         res.status(500).json({ message: "Error en la autenticación", error });
     }

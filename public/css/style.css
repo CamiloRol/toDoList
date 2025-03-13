@@ -1,5 +1,37 @@
 @import "/node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
+/* Galeria ajustes del front bb  */
+#gallery {
+  display: none;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 200px); 
+  gap: 10px;
+  padding: 20px;
+  justify-content: center;
+  background-color: #0000004d;
+  border-radius: 20px;
+
+}
+
+#gallery h1{
+font-family: "Bebas Neue", sans-serif;
+
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+
 .btn-cart {
   background: none;
   border: none;
@@ -153,7 +185,6 @@ section {
     flex-wrap: wrap;
     background: linear-gradient(to left,rgba(147, 168, 28, 0.411),rgba(116, 253, 139, 0.452));
     justify-content: center;
-     
     align-items: center;
     justify-items: center;
     width: 50%;
