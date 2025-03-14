@@ -2,6 +2,7 @@ import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
 import Cart from "./cart.js";
 import ResumeCart from "./resumeCart.js";
+import GuardarLocalStorage from "./contactenos.js"; //Esta parte no supe hacerla
 window.jsPDF = window.jspdf.jsPDF;
 
 const productos = [
@@ -38,6 +39,7 @@ const cartCount = d.querySelector("#cartCount").textContent
 const resumeCart = d.getElementById("resumeCart")
 const offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"))
 const btnOffcanva =  d.getElementById("btnOffcanva")
+const ContactenosBtn = d.getElementById("") //Tengo que hacer despues
 
 
 let fila = d.createElement("div")
@@ -69,7 +71,8 @@ d.addEventListener("click", (event) => {
 });
 
 btnSave.addEventListener("click", () => {
-    storage.exportarInven()
+    storage.exportarInven();
+    imagenInput.style.display = (imagenInput.style.display === "none" ) ? "grid" : "none";
 })
 
 btnToDo.addEventListener("click", () => {
