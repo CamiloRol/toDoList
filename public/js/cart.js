@@ -6,11 +6,12 @@ class Cart {
         this.productos = productos;
         this.secProducts = secProducts;
         this.carrito = [];
-        this.cartCountElement = d.querySelector("#cartCount").textContent
+        this.cartCountElement = d.querySelector("#cartCount")
         this.cartItemsContainer = this.d.getElementById("cartItems");
         this.offcanvasElement = new bootstrap.Offcanvas(document.getElementById("offcanvasCartBody"))
         this.btnOffcanva =  d.getElementById("btnOffcanva")
-        
+
+        this.updateCartCount()
         this.executeBtn()
     }
 
@@ -105,9 +106,6 @@ class Cart {
             });
         }
 
-        // Actualizar el contador del carrito
-        this.cartCountElement = this.carrito.reduce((total, item) => total + item.cantidad, 0);
-
         // Agregar eventos a los botones de eliminar
         this.d.querySelectorAll(".borrar-carrito").forEach(boton => {
             boton.addEventListener("click", (event) => {
@@ -115,6 +113,8 @@ class Cart {
                 this.borrarDelCarrito(productoId);
             });
         });
+
+        this.updateCartCount()
     }
 
     executeBtn() {
@@ -123,6 +123,10 @@ class Cart {
                 this.offcanvasElement.show()
             });
         });
+    }
+
+    updateCartCount() {
+        this.cartCountElement.textContent = this.carrito.length;
     }
 }
 
