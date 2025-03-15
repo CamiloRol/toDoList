@@ -2,7 +2,7 @@ import ToDo from "./ToDo.js";
 import LocalStorage from "./localstorage.js";
 import Cart from "./cart.js";
 import ResumeCart from "./resumeCart.js";
-import GuardarLocalStorage from "./contactenos.js"; //Esta parte no supe hacerla
+import contactUs from "./contactenos.js"; //Esta parte no supe hacerla
 import {WeatherApp} from "./weatherapp.js";
 import {PokeApi} from "./pokeapi.js";
 
@@ -42,7 +42,7 @@ const cityInput = d.querySelector('.city-input')
 const loginForm = d.getElementById("loginForm")
 const emailLogin = d.getElementById("emailLogin").value
 const passLogin = d.getElementById("passLogin").value
-const ContactenosBtn = d.getElementById("") //Tengo que hacer despues
+const BtnContactenos = d.querySelector(".contactanos-btn");
 
 
 let fila = d.createElement("div")
@@ -160,6 +160,10 @@ if (path.includes("index.html")){
             cityInput.blur();
         }
     })
+}else if(path.includes("contactUs.html")) {
+    BtnContactenos.addEventListener("click", 
+        GuardarLocalStorage()
+    );
 }
 
 d.addEventListener("click", (event) => {

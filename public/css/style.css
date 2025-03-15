@@ -310,7 +310,7 @@ body.fade-out {
 
 /*  Form  */
 
-form {
+#contactForm {
   display: flex;
   flex-direction: column;
   background-color: linear-gradient#1c4217;
@@ -321,13 +321,13 @@ form {
   width: 100%;
   max-width: 400px;
 }
-form label{
+#contactForm label{
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-form input {
+#contactForm input {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 20px;
@@ -337,7 +337,7 @@ form input {
   box-sizing: border-box;
 }
 
-form button{
+#contactForm button{
   width: 100%;
   padding: 10px;
   background-color: #333;
@@ -346,7 +346,8 @@ form button{
   border-radius: 3px;
   cursor: pointer;
 }
-form button:hover{
+
+#contactForm button:hover{
   background-color: #555;
 }
 
